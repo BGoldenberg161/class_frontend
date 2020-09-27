@@ -62,9 +62,9 @@ With Class, you can reduce the workload on educators offer a highly effcient lea
 
 ---
 
-### Wireframes ⤦
+### Wireframes (Rough Draft) ⤦
 
-[Insert Wireframes here]
+![wireFrames](https://i.imgur.com/fQDjWlb.png)
 
 ### Color Scheme ⤦
 
