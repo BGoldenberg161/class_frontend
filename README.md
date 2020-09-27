@@ -58,7 +58,7 @@ With Class, you can reduce the workload on educators offer a highly effcient lea
 > As a User I can Signup / Login.<br>
 > As a User I can identify as a Teacher or Student.<br>
 > As a Teacher I am able to create Assignments or Quizes.<br>
-> As a Student I am able to do the Assignment or Quiz and view my Results.<br>
+> As a Student I am able to do the Assignment or Quiz and view my Results/Grade.<br>
 
 ---
 
@@ -127,7 +127,38 @@ With Class, you can reduce the workload on educators offer a highly effcient lea
 
 ### Daily Sprints
 
-[Agile Sprint Format, Schedule will be placed here]
+- Sept. 27, 2020
+  - Team as a whole set up frontend Client and backend Server.
+  - Discussed and installed basic dependencies.
+  - Finalized roughdraft wireFrames.
+  - Discussed Accessability and implemented a highly accessible color scheme pallete.
+  - Team is Ready to run on frontend and backend structure[blueprinting]
+
+- Sept. 28, 2020
+  - Setup all Models on backEnd.
+  - Set up all skeleton components and form components (Grommet) for all concurrently known pages.
+    - Will then convene with team for further action.
+  - To be Determined when team convenes.
+
+- Sept. 29, 2020
+  - Dive deep on client to server side connection and routes.
+  - To be Determined when team convenes.
+
+- Sept. 30, 2020
+  - Clean up
+  - Style
+  - Streatch Goals
+    - Student RSS
+    - Teacher RSS
+    - Possible Zoom agregation
+    - Export Grades to Excel
+    - TBD
+  - To be Determined when team convenes.
+
+- Oct. 1, 2020
+  - Deployment
+  - Present to Client
+
 
 ##### (or otherwise general plan for accomplishing tasks, preferably broken down by day)
 
