@@ -4,7 +4,8 @@ import { View, Hide, MailOption, ContactInfo, Sign } from 'grommet-icons';
 
 const Signup = props => {
 	const [value, setValue] = React.useState('');
-	const [reveal, setReveal] = React.useState(false);
+  const [reveal, setReveal] = React.useState(false);
+  const [valueTwo, setValueTwo] = React.useState('');
 	return (
 		<div>
 			<Box fill align='center' justify='center'>
@@ -51,6 +52,27 @@ const Signup = props => {
 									type={reveal ? 'text' : 'password'}
 									value={value}
 									onChange={event => setValue(event.target.value)}
+								/>
+								<Button
+									icon={
+										reveal ? <View size='medium' /> : <Hide size='medium' />
+									}
+									onClick={() => setReveal(!reveal)}
+								/>
+							</Box>
+						</FormField>
+            <FormField
+							label='Confirm Password'
+							name='password2'
+							type='password'
+							required
+						>
+							<Box direction='row' justify='end'>
+								<TextInput
+									plain
+									type={reveal ? 'text' : 'password'}
+									value={valueTwo}
+									onChange={event => setValueTwo(event.target.value)}
 								/>
 								<Button
 									icon={
