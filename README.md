@@ -49,7 +49,10 @@ With Class, you can reduce the workload on educators offer a highly effcient lea
 
 ### ERD (Rough Draft) ⤦
 
-![ERD](https://i.imgur.com/J8TI6Ci.png)
+![ERD](https://i.imgur.com/J8TI6Ci.png)<br>
+
+### ERD v.2 (MVP Draft) ⤦
+![ERDV2](https://i.imgur.com/34segE6.png)
 
 ---
 
