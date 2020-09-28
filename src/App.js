@@ -1,10 +1,11 @@
 import React from 'react';
+import { Grommet } from 'grommet'
 
 function App() {
   return (
-    <div className="App">
+    <Grommet plain>
       <p>Welcome to the FrontEnd</p>
-    </div>
+    </Grommet>
   );
 }
 
