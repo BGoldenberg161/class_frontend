@@ -1,21 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 import AppBar from './components/AppBar';
-import {
-	Box,
-	Button,
-	Collapsible,
-	Heading,
-	Grommet,
-	Layer,
-	ResponsiveContext,
-} from 'grommet';
-import {
-	FingerPrint,
-	FormClose,
-	Login,
-	Notification,
-	Workshop,
-} from 'grommet-icons';
+import Home from './pages/Home';
+import About from './pages/About';
+import Signup from './pages/Signup';
+import Login from './pages/Login';
+import Profile from './pages/Profile';
+import Assignment from './pages/Assignment';
+import Grade from './pages/Grade';
+import Class from './pages/Class';
+import FourOhFour from './pages/FourOhFour';
+
+import { Grommet } from 'grommet';
 
 const theme = {
 	global: {
@@ -31,73 +27,20 @@ const theme = {
 };
 
 function App() {
-	const [showSidebar, setShowSidebar] = useState(false);
 	return (
 		<Grommet theme={theme} themeMode='dark' full>
-			<ResponsiveContext.Consumer>
-				{size => (
-					<Box fill>
-						<AppBar>
-							<Heading level='3' margin='none'>
-								cℓass
-							</Heading>
-							<Button label='About' icon={<Workshop />} onClick={() => {}} />
-							<Button
-								label='Signup'
-								icon={<FingerPrint />}
-								onClick={() => {}}
-							/>
-							<Button label='Login' icon={<Login />} onClick={() => {}} />
-							<Button
-								icon={<Notification />}
-								onClick={() => setShowSidebar(!showSidebar)}
-							/>
-						</AppBar>
-						<Box direction='row' flex overflow={{ horizontal: 'hidden' }}>
-							<Box flex align='center' justify='center'>
-								app body
-							</Box>
-							{!showSidebar || size !== 'small' ? (
-								<Collapsible direction='horizontal' open={showSidebar}>
-									<Box
-										flex
-										width='medium'
-										background='light-2'
-										elevation='small'
-										align='center'
-										justify='center'
-									>
-										sidebar
-									</Box>
-								</Collapsible>
-							) : (
-								<Layer>
-									<Box
-										background='light-2'
-										tag='header'
-										justify='end'
-										align='center'
-										direction='row'
-									>
-										<Button
-											icon={<FormClose />}
-											onClick={() => setShowSidebar(false)}
-										/>
-									</Box>
-									<Box
-										fill
-										background='light-2'
-										align='center'
-										justify='center'
-									>
-										sidebar
-									</Box>
-								</Layer>
-							)}
-						</Box>
-					</Box>
-				)}
-			</ResponsiveContext.Consumer>
+			<AppBar />
+			<Switch>
+			<Route path='/about' component={About} />
+			<Route path='/signup' component={Signup} />
+			<Route path='/login' component={Login} />
+			<Route path='/profile' component={Profile} />
+			<Route path='/assignment' component={Assignment} />
+			<Route path='/grade' component={Grade} />
+			<Route path='/class' component={Class} />
+			<Route exact path='/' component={Home} />
+			<Route path='*' component={FourOhFour} />
+			</Switch>
 		</Grommet>
 	);
 }
