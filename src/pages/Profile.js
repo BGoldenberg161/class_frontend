@@ -5,16 +5,8 @@ import DjangoCSRFToken from "django-react-csrftoken"
 const Profile = props => {
   useEffect(() => {
     axios
-      .post("http://localhost:8000/api/user/", {
-        username: "chiliWings344588",
-        password: "passwordistaco",
-        first_name: "chili",
-        last_name: "wings",
-        is_teacher: false,
-        email: "chili@wings.com",
-      })
+      .get("http://localhost:8000/api/user")
       .then(res => {
-        console.log(res)
         console.log(res.data)
       })
       .catch(err =>
