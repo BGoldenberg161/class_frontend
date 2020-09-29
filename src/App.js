@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import AppBar from './components/AppBar';
 import Home from './pages/Home';
@@ -12,6 +12,7 @@ import Class from './pages/Class';
 import FourOhFour from './pages/FourOhFour';
 
 import { Grommet } from 'grommet';
+// import { dark } from 'grommet/themes'
 
 const theme = {
 	global: {
@@ -28,7 +29,7 @@ const theme = {
 
 function App() {
 	return (
-		<Grommet theme={theme} themeMode='dark' full>
+		<Grommet theme={theme} full>
 			<AppBar />
 			<Switch>
 			<Route path='/about' component={About} />
