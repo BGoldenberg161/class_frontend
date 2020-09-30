@@ -39,6 +39,7 @@ const SignupForm = props => {
 			);
 	};
 
+
 	return (
 		<div>
 			<Main pad='large' align='center' justify='center'>

@@ -1,26 +1,43 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Main, Box, Button, Form, FormField, TextInput } from 'grommet';
 import { View, Hide, Sign } from 'grommet-icons';
+import axios from 'axios'
 
 const LoginForm = props => {
-	const [value, setValue] = React.useState('');
-	const [reveal, setReveal] = React.useState(false);
+	const [value, setValue] = useState('');
+	const [reveal, setReveal] = useState(false);
+	const [username, setUsername] = useState('')
+	const [password, setPassword] = useState('')
+
+	// const handleLogin = e => {
+	// 	e.preventDefault();
+	// 	axios
+	// 		.post('http://localhost:8000/current_user/', {
+	// 			username: username,
+	// 			password: password,
+	// 		}, { isAuthenticated: true })
+	// 		.then(res => {
+	// 			const token = res.data.key
+	// 			if (local)
+	// 		})
+	// 		.catch(err =>
+	// 			console.log(err, "You've hit an error in the axios call for users")
+	// 		);
+	// };
 	return (
 		<div>
 			<Main pad='large' align='center' justify='center'>
 				<Box fill align='center' justify='center' >
 					<Box width='medium'>
 						<Form
-							onChange={value => console.log('onChange', value)}
-							onSubmit={event =>
-								console.log('onSubmit', event.value, event.touched)
-							}
+							// onSubmit={(e) => handleLogin(e)}
 						>
 							<FormField
 								reverse
 								icon={<Sign />}
 								label='Username'
 								name='username'
+								onChange={(e) => setUsername(e.target.value)}
 								required
 								validate={{ regexp: /^[a-z]/i }}
 							/>
@@ -28,6 +45,7 @@ const LoginForm = props => {
 								label='Password'
 								name='password'
 								type='password'
+								onChange={(e) => setPassword(e.target.value)}
 								required
 							>
 								<Box direction='row' justify='end'>
