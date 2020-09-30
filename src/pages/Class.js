@@ -1,6 +1,7 @@
 import React from 'react';
 import ClassCard from '../components/ClassCard';
 import { ResponsiveContext, Grid } from 'grommet';
+import UpdateClassForm from '../components/UpdateClassForm'
 
 const Class = props => {
 	return (
@@ -9,6 +10,7 @@ const Class = props => {
 				if (size === 'small') {
 					return (
 						<Grid columns={['auto']}>
+							<UpdateClassForm />
 							<ClassCard />
 							<ClassCard />
 							<ClassCard />
@@ -20,6 +22,7 @@ const Class = props => {
 				} else if (size === 'medium') {
 					return (
 						<Grid columns={['auto', 'auto']}>
+							<UpdateClassForm />
 							<ClassCard />
 							<ClassCard />
 							<ClassCard />
@@ -31,6 +34,7 @@ const Class = props => {
 				} else {
 					return (
 						<Grid columns={['auto', 'auto', 'auto']}>
+							<UpdateClassForm />
 							<ClassCard />
 							<ClassCard />
 							<ClassCard />
