@@ -1,9 +1,10 @@
 import React from 'react';
+import VideoPlayer from '../components/VideoPlayer';
 
-const About = (props) => {
+const About = props => {
 	return (
 		<div>
-			<h1>About the Great Pharoahs of Giza</h1>
+			<VideoPlayer />
 		</div>
 	);
 };
