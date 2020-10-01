@@ -6,7 +6,7 @@ import LoginForm from '../components/LoginForm';
 const Login = props => {
 	return (
 		<div>
-			<LoginForm />
+			<LoginForm setToken={props.setToken}/>
 		</div>
 	);
 };

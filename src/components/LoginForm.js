@@ -1,36 +1,48 @@
-import React, { useState, useEffect } from 'react';
-import { Main, Box, Button, Form, FormField, TextInput } from 'grommet';
-import { View, Hide, Sign } from 'grommet-icons';
+import React, { useState, useEffect } from 'react'
+import { Main, Box, Button, Form, FormField, TextInput } from 'grommet'
+import { View, Hide, Sign } from 'grommet-icons'
 import axios from 'axios'
+import { Redirect } from 'react-router-dom'
+
+require('dotenv').config()
+const authTokenPath = process.env.REACT_STORAGE_TOKEN
+
 
 const LoginForm = props => {
-	const [value, setValue] = useState('');
-	const [reveal, setReveal] = useState(false);
+	const [value, setValue] = useState('')
+	const [reveal, setReveal] = useState(false)
 	const [username, setUsername] = useState('')
 	const [password, setPassword] = useState('')
+	const [successfulLogin, setSuccessfulLogin] = useState(false)
 
-	// const handleLogin = e => {
-	// 	e.preventDefault();
-	// 	axios
-	// 		.post('http://localhost:8000/current_user/', {
-	// 			username: username,
-	// 			password: password,
-	// 		}, { isAuthenticated: true })
-	// 		.then(res => {
-	// 			const token = res.data.key
-	// 			if (local)
-	// 		})
-	// 		.catch(err =>
-	// 			console.log(err, "You've hit an error in the axios call for users")
-	// 		);
-	// };
+	const handleLogin = e => {
+		e.preventDefault()
+		axios
+			.post('http://localhost:8000/login/', {
+				username: username,
+				password: password
+			})
+			.then(res => {
+				console.log('♥️', res)
+				if (res.data.token) {
+					localStorage.setItem(authTokenPath, res.data.token)
+					props.setToken(res.data.token)
+					setSuccessfulLogin(true)
+				}
+			})
+			.catch(err =>
+				console.log(err, "You've hit an error in the axios call for login")
+			)
+	}
+
 	return (
 		<div>
+			{successfulLogin ? <Redirect to={{pathname: `/profile/`}} /> : ''}
 			<Main pad='large' align='center' justify='center'>
 				<Box fill align='center' justify='center' >
 					<Box width='medium'>
 						<Form
-							// onSubmit={(e) => handleLogin(e)}
+							onSubmit={(e) => handleLogin(e)}
 						>
 							<FormField
 								reverse
@@ -46,7 +58,6 @@ const LoginForm = props => {
 								name='password'
 								type='password'
 								onChange={(e) => setPassword(e.target.value)}
-								required
 							>
 								<Box direction='row' justify='end'>
 									<TextInput
@@ -71,7 +82,7 @@ const LoginForm = props => {
 				</Box>
 			</Main>
 		</div>
-	);
-};
+	)
+}
 
-export default LoginForm;
+export default LoginForm
