@@ -24,8 +24,8 @@ const UpdateAssignmentForm = props => {
 			}, 
 			authorizationHeader)
 			.then(res => {
-				console.log(res);
 				console.log(res.data);
+				props.fetchAssignments()
 			})
 			.catch(err =>
 				console.log(err, "You've hit an error in the axios call for updateClass")

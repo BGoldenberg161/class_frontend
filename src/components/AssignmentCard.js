@@ -52,7 +52,7 @@ const AssignmentCard = props => {
 							}}
 						/>
 					</Box>
-					<UpdateAssignmentModal {...props} assignmentId={props.assignment.id} currentUser={props.currentUser} token={props.token} assignment={props.assignment} />
+					<UpdateAssignmentModal {...props} assignmentId={props.assignment.id} currentUser={props.currentUser} token={props.token} assignment={props.assignment} fetchAssignments={props.fetchAssignments} />
 					<Text size='medium' color='brand'>
 						{props.assignment.description}
 					</Text>
