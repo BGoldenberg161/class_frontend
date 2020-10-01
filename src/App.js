@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -14,6 +14,9 @@ import Layout from './components/Layout';
 import { Grommet } from 'grommet';
 import { CaretDown } from 'grommet-icons';
 // import { dark } from 'grommet/themes'
+
+require('dotenv').config()
+const authTokenPath = process.env.REACT_STORAGE_TOKEN
 
 const theme = {
 	global: {
@@ -78,17 +81,32 @@ const theme = {
 };
 
 function App() {
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [token, setToken] = useState('')
+
+  useEffect(() => {
+    if (localStorage.getItem(authTokenPath) && token === ''){
+      setIsLoggedIn(true)
+      setToken(localStorage.getItem(authTokenPath))
+    } else if (localStorage.getItem(authTokenPath) && token !== '') {
+      setIsLoggedIn(true)
+    }
+  }, [token])
+  
+  
+
 	return (
 		<Grommet theme={theme} full={true}>
 			<Layout>
 				<Switch>
 					<Route path='/about' component={About} />
 					<Route path='/signup' component={Signup} />
-					<Route path='/login' component={Login} />
+					<Route path='/login' render={(props) => <Login {...props} setToken={setToken} /> } />
 					<Route path='/profile' component={Profile} />
 					<Route path='/assignment' component={Assignment} />
 					<Route path='/grade' component={Grade} />
-					<Route path='/class' component={Class} />
+					<Route path='/class' render={(props) => <Class {...props} token={token} /> } />
 					<Route exact path='/' component={Home} />
 					<Route path='*' component={FourOhFour} />
 				</Switch>
