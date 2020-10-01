@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import { Main, Box, Button, Form, FormField, TextInput } from 'grommet';
-import { View, Hide, Sign } from 'grommet-icons';
+import { Main, Box, Button, Form, FormField } from 'grommet';
+import {  Attraction, Cubes, Yoga} from 'grommet-icons';
 import axios from 'axios'
 
 const UpdateClassForm = props => {
@@ -37,7 +37,7 @@ const UpdateClassForm = props => {
 						>
 							<FormField
 								reverse
-								icon={<Sign />}
+								icon={<Attraction />}
 								label='Class Name'
 								name='name'
 								value={className}
@@ -47,7 +47,7 @@ const UpdateClassForm = props => {
 							/>
 							<FormField
 								reverse
-								icon={<Sign />}
+								icon={<Cubes />}
 								label='Grade Level'
 								name='gradeLevel'
 								type='text'
@@ -58,7 +58,7 @@ const UpdateClassForm = props => {
 							/>
 							<FormField
 								reverse
-								icon={<Sign />}
+								icon={<Yoga />}
 								label='Teacher'
 								name='teacher'
 								type='text'

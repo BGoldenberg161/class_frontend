@@ -21,56 +21,64 @@ const AppBar = props => {
 				</Heading>
 
 				<Anchor
-					href='/'
+					as={Link}
+					to='/'
 					label='Home'
 					color='#20A464'
 					icon={<Home />}
 					hoverIndicator
 				/>
 				<Anchor
-					href='/about'
+					as={Link}
+					to='/about'
 					label='About'
 					color='#20A464'
 					icon={<Cli />}
 					hoverIndicator
 				/>
 				<Anchor
-					href='/profile'
+					as={Link}
+					to='/profile'
 					label='Profile'
 					color='#20A464'
 					icon={<User />}
 					hoverIndicator
 				/>
 				<Anchor
-					href='/assignment'
+					as={Link}
+					to='/assignment'
 					label='Assignment'
 					color='#20A464'
 					icon={<Catalog />}
 					hoverIndicator
 				/>
 				<Anchor
-					href='/grade'
+					as={Link}
+					to='/grade'
 					label='Grades'
 					color='#20A464'
 					icon={<Achievement />}
 					hoverIndicator
 				/>
 				<Anchor
-					href='/class'
+					as={Link}
+					to='/class'
 					label='Class'
 					color='#20A464'
 					icon={<Workshop />}
 					hoverIndicator
 				/>
 				<Anchor
-					href='/signup'
+					as={Link}
+					to='/signup'
 					label='Signup'
 					color='#20A464'
 					icon={<FingerPrint />}
 					hoverIndicator
 				/>
 				<Anchor
-					href='/login'
+					as={Link}
+					to='/login'
 					label='Login'
 					color='#20A464'
 					icon={<Login />}
