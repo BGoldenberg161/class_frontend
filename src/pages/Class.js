@@ -6,7 +6,7 @@ import axios from 'axios'
 
 const Class = props => {
 
-	const [classes, setClasses] = useState([{name: 'DummyData', gradeLevel: 5}])
+	const [classes, setClasses] = useState([])
 
 	const authorizationHeader = {
 		headers: {'Authorization': `Bearer ${props.token}`}
@@ -43,7 +43,7 @@ const Class = props => {
 	return (
 		<>
 			<Box direction='row' justify='center' margin={{ top: 'large' }}>
-				<AddClassModal {...props} currentUser={props.currentUser} token={props.token} />
+				<AddClassModal {...props} currentUser={props.currentUser} token={props.token} fetchClasses={fetchClasses}/>
 			</Box>
 
 			<Box direction='row' justify='center' margin={{ top: 'large' }}>

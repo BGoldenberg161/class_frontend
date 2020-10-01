@@ -5,8 +5,8 @@ import axios from 'axios'
 
 const UpdateClassForm = props => {
 	
-	const [className, setClassName] = useState('')
-	const [gradeLevel, setGradeLevel] = useState()
+	const [className, setClassName] = useState(props.class.name)
+	const [gradeLevel, setGradeLevel] = useState(props.class.gradeLevel)
 
 	const authorizationHeader = {
 		headers: {'Authorization': `Bearer ${props.token}`}

@@ -55,7 +55,7 @@ const ClassCard = props => {
 							}}
 						/>
 					</Box>
-					<UpdateClassModal {...props} classId={props.class.id} currentUser={props.currentUser} token={props.token} fetchClasses={props.fetchClasses}/>
+					<UpdateClassModal {...props} class={props.class} classId={props.class.id} currentUser={props.currentUser} token={props.token} fetchClasses={props.fetchClasses}/>
 					<Text size='medium' color='brand'>
 						Class Desc.
 					</Text>

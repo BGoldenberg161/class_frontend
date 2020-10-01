@@ -10,7 +10,19 @@ const Assignment = props => {
 
 	const authorizationHeader = {
 		headers: {'Authorization': `Bearer ${props.token}`}
-	  }
+	}
+
+	const fetchAssignments = () => {
+		axios
+		  .get('http://localhost:8000/api/assignments/', authorizationHeader)
+		  .then(res => {
+			setAssignments(res.data)
+			console.log('Here is the class data: ', res.data)
+		  })
+		  .catch(err =>
+			console.log(err, "You've hit an error in the axios call for assignments")
+		  )
+	}
 
 	useEffect(() => {
 		axios
@@ -27,7 +39,7 @@ const Assignment = props => {
 	return (
 		<>
 			<Box direction='row' justify='center' margin={{ top: 'large' }}>
-				<AddAssignmentModal {...props} currentUser={props.currentUser} token={props.token}/>
+				<AddAssignmentModal {...props} currentUser={props.currentUser} token={props.token} fetchAssignments={fetchAssignments}/>
 			</Box>
 			<ResponsiveContext>
 				{size => {
@@ -35,7 +47,7 @@ const Assignment = props => {
 						return (
 							<Grid columns={['auto']}>
 								{assignments.map((a, i) => {
-										return <AssignmentCard key={i} assignment={a} currentUser={props.currentUser} token={props.token}/>
+										return <AssignmentCard key={i} assignment={a} currentUser={props.currentUser} token={props.token} fetchAssignments={fetchAssignments}/>
 									})}
 							</Grid>
 						);
@@ -43,7 +55,7 @@ const Assignment = props => {
 						return (
 							<Grid columns={['auto', 'auto']}>
 								{assignments.map((a, i) => {
-										return <AssignmentCard key={i} assignment={a} currentUser={props.currentUser} token={props.token} />
+										return <AssignmentCard key={i} assignment={a} currentUser={props.currentUser} token={props.token} fetchAssignments={fetchAssignments}/>
 									})}
 							</Grid>
 						);
@@ -51,7 +63,7 @@ const Assignment = props => {
 						return (
 							<Grid columns={['auto', 'auto', 'auto']}>
 								{assignments.map((a, i) => {
-										return <AssignmentCard key={i} assignment={a} currentUser={props.currentUser} token={props.token}/>
+										return <AssignmentCard key={i} assignment={a} currentUser={props.currentUser} token={props.token} fetchAssignments={fetchAssignments}/>
 									})}
 							</Grid>
 						);
