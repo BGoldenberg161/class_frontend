@@ -24,9 +24,9 @@ const LoginForm = props => {
 			})
 			.then(res => {
 				console.log('♥️', res)
-				if (res.data.token) {
-					localStorage.setItem(authTokenPath, res.data.token)
-					props.setToken(res.data.token)
+				if (res.data.access) {
+					localStorage.setItem(authTokenPath, res.data.access)
+					props.setToken(res.data.access)
 					setSuccessfulLogin(true)
 				}
 			})
