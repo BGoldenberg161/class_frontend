@@ -5,21 +5,31 @@ import { FormNext } from 'grommet-icons';
 const FooterBar = props => {
 	return (
 		<div>
-			<Footer
+			<Box
+				tag='header'
+				direction='row'
+				// align='center'
+				// justify='between'
 				background='brand'
-        pad={{ horizontal: 'large', vertical: 'small' }}
-        style={{position: 'absolute', bottom: '0', width: '100%'}}
+				pad={{ left: 'small', right: 'small', vertical: 'small' }}
+				elevation='medium'
+				style={{ zIndex: '1', position: "absolute", bottom: '0', width: '100vw' }}
 			>
-				<Box direction='row' gap='small'>
-					<FormNext color='black' />
-					<Text alignSelf='center' weight='bold'>
-						c<span style={{ color: 'green' }}>ℓ</span>ass
+				<Footer
+					background='brand'
+					pad={{ horizontal: 'large', vertical: 'small' }}
+				>
+					<Box direction='row' gap='small'>
+						<FormNext color='black' />
+						<Text alignSelf='center' weight='bold'>
+							c<span style={{ color: 'green' }}>ℓ</span>ass
+						</Text>
+					</Box>
+					<Text textAlign='center' size='small' color='green'>
+						© 2020
 					</Text>
-				</Box>
-				<Text textAlign='center' size='small' color="green">
-					© 2020
-				</Text>
-			</Footer>
+				</Footer>
+			</Box>
 		</div>
 	);
 };
