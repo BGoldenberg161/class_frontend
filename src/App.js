@@ -113,7 +113,7 @@ function App() {
 					<Route path='/profile' render={(props) => <Profile {...props} currentUser={currentUser} token={token} /> } />
 					<Route path='/assignment' component={Assignment} />
 					<Route path='/grade' component={Grade} />
-					<Route path='/class' render={(props) => <Class {...props} token={token} /> } />
+					<Route path='/class' render={(props) => <Class {...props} currentUser={currentUser} token={token} /> } />
 					<Route exact path='/' component={Home} />
 					<Route path='*' component={FourOhFour} />
 				</Switch>
