@@ -12,7 +12,7 @@ const UpdateAssignmentModal = props => {
 					onEsc={() => setShow(false)}
 					onClickOutside={() => setShow(false)}
 				>
-					<UpdateAssignmentForm/>
+					<UpdateAssignmentForm {...props} assignmentId={props.assignmentId} currentUser={props.currentUser} token={props.token} assignment={props.assignment}/>
 					<Button label='close' onClick={() => setShow(false)} />
 				</Layer>
 			)}

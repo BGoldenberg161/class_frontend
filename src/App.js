@@ -115,7 +115,7 @@ function App() {
 					<Route path='/signup' component={Signup} />
 					<Route path='/login' render={(props) => <Login {...props} setToken={setToken} /> } />
 					<Route path='/profile' render={(props) => <Profile {...props} currentUser={currentUser} token={token} /> } />
-					<Route path='/assignment' component={Assignment} />
+					<Route path='/assignment' render={(props) => <Assignment {...props} currentUser={currentUser} token={token} /> } />
 					<Route path='/grade' component={Grade} />
 					<Route path='/class' render={(props) => <Class {...props} currentUser={currentUser} token={token} /> } />
 					<Route exact path='/' component={Home} />
