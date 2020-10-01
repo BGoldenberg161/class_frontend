@@ -8,7 +8,6 @@ const ClassForm = props => {
 	
 	const [className, setClassName] = useState('')
 	const [gradeLevel, setGradeLevel] = useState()
-	const [successfulClassCreate, setSuccessfulClassCreate] = useState(false)
 
 	const authorizationHeader = {
 		headers: {'Authorization': `Bearer ${props.token}`}
@@ -24,7 +23,7 @@ const ClassForm = props => {
 			authorizationHeader)
 			.then(res => {
 				console.log(res);
-				setSuccessfulClassCreate(true)
+				props.fetchClasses()
 			})
 			.catch(err =>
 				console.log(err, "You've hit an error in the axios call for add class")
@@ -33,7 +32,6 @@ const ClassForm = props => {
 
 	return (
 		<div>
-			{/* {successfulClassCreate? <Redirect to={{pathname: `/class/`}} /> : ''} */}
 			<Main pad='large' align='center' justify='center'>
 				<Box fill align='center' justify='center' >
 					<Box width='medium'>
