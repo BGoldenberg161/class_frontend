@@ -10,8 +10,20 @@ const Class = props => {
 
 	const authorizationHeader = {
 		headers: {'Authorization': `Bearer ${props.token}`}
-	  }
+	}
 
+	const fetchClasses = () => {
+		axios
+		  .get('http://localhost:8000/api/classrooms/', authorizationHeader)
+		  .then(res => {
+			setClasses(res.data)
+			console.log('Here is the class data: ', res.data)
+		  })
+		  .catch(err =>
+			console.log(err, "You've hit an error in the axios call for classes")
+		  )
+	}
+	
 	useEffect(() => {
 		console.log(props.token)
 		axios
@@ -25,6 +37,7 @@ const Class = props => {
 		  )
 	  }, [props.token, props.currentUser])
 
+	
 	
 
 	return (
@@ -40,7 +53,7 @@ const Class = props => {
 							return (
 								<Grid columns={['auto']}>
 									{classes.map((c, i) => {
-										return <ClassCard key={i} class={c} {...props} currentUser={props.currentUser} token={props.token} />
+										return <ClassCard key={i} class={c} {...props} currentUser={props.currentUser} token={props.token} fetchClasses={fetchClasses} />
 									})}
 								</Grid>
 							);
@@ -48,7 +61,7 @@ const Class = props => {
 							return (
 								<Grid columns={['auto', 'auto']}>
 									{classes.map((c, i) => {
-										return <ClassCard key={i} class={c} {...props} currentUser={props.currentUser} token={props.token} />
+										return <ClassCard key={i} class={c} {...props} currentUser={props.currentUser} token={props.token} fetchClasses={fetchClasses} />
 									})}
 								</Grid>
 							);
@@ -56,7 +69,7 @@ const Class = props => {
 							return (
 								<Grid columns={['auto', 'auto', 'auto']}>
 									{classes.map((c, i) => {
-										return <ClassCard key={i} class={c} {...props} currentUser={props.currentUser} token={props.token} />
+										return <ClassCard key={i} class={c} {...props} currentUser={props.currentUser} token={props.token} fetchClasses={fetchClasses} />
 									})}
 								</Grid>
 							);

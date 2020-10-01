@@ -24,6 +24,7 @@ const UpdateClassForm = props => {
 			.then(res => {
 				console.log(res);
 				console.log(res.data);
+				props.fetchClasses()
 			})
 			.catch(err =>
 				console.log(err, "You've hit an error in the axios call for updateClass")
