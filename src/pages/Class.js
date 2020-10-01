@@ -40,7 +40,7 @@ const Class = props => {
 							return (
 								<Grid columns={['auto']}>
 									{classes.map((c, i) => {
-										return <ClassCard key={i} class={c} />
+										return <ClassCard key={i} class={c} {...props} currentUser={props.currentUser} token={props.token} />
 									})}
 								</Grid>
 							);
@@ -48,7 +48,7 @@ const Class = props => {
 							return (
 								<Grid columns={['auto', 'auto']}>
 									{classes.map((c, i) => {
-										return <ClassCard key={i} class={c} />
+										return <ClassCard key={i} class={c} {...props} currentUser={props.currentUser} token={props.token} />
 									})}
 								</Grid>
 							);
@@ -56,7 +56,7 @@ const Class = props => {
 							return (
 								<Grid columns={['auto', 'auto', 'auto']}>
 									{classes.map((c, i) => {
-										return <ClassCard key={i} class={c} />
+										return <ClassCard key={i} class={c} {...props} currentUser={props.currentUser} token={props.token} />
 									})}
 								</Grid>
 							);
