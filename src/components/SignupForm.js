@@ -22,7 +22,7 @@ const SignupForm = props => {
 			return;
 		}
 		axios
-			.post('http://localhost:8000/api/user/', {
+			.post('http://localhost:8000/signup/', {
 				username: username,
 				password: password,
 				first_name: firstName,

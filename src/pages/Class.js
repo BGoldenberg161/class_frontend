@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import ClassCard from '../components/ClassCard';
 import { Box, ResponsiveContext, Grid } from 'grommet';
 import AddClassModal from '../components/AddClassModal';
@@ -6,12 +6,13 @@ import axios from 'axios'
 
 const Class = props => {
 	const authorizationHeader = {
-		'Authorization': `Bearer ${props.token}`
+		headers: {'Authorization': `Bearer ${props.token}`}
 	  }
-	
+
 	useEffect(() => {
+		console.log(props.token)
 		axios
-		  .get(`http://localhost:8000/api/classroom/${props.currentUser.user_id}`, authorizationHeader)
+		  .get('http://localhost:8000/api/classrooms/', authorizationHeader)
 		  .then(res => {
 			console.log('Here is the class data: ', res.data)
 		  })
