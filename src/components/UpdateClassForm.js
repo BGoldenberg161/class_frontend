@@ -14,6 +14,7 @@ const UpdateClassForm = props => {
 
 	const handleSubmit = e => {
 		e.preventDefault()
+		console.log(props)
 		axios
 			.put(`http://localhost:8000/api/classroom/${props.classId}/`, {
 				name: className,
