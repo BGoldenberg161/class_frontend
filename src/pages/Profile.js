@@ -5,7 +5,7 @@ import { grommet } from 'grommet/themes';
 import { Toast } from "grommet-icons";
 import { Link } from 'react-router-dom'
 import ProLayout from '../components/ProLayout'
-import jwtDecode from 'jwt-decode'
+
 
 const Profile = props => {
   const authorizationHeader = {
@@ -13,13 +13,11 @@ const Profile = props => {
   }
 
   useEffect(() => {
-    // console.log(props.token)
-    // console.log(props.currentUser)
+
     axios
       .get(`http://localhost:8000/api/user/${props.currentUser.user_id}`, authorizationHeader)
       .then(res => {
         console.log('Here is the user data ya bitch: ', res.data)
-
       })
       .catch(err =>
         console.log(err, "You've hit an error in the axios call for user")
