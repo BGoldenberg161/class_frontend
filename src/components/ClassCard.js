@@ -1,6 +1,6 @@
 import React from 'react';
+import UpdateClassModal from './UpdateClassModal';
 import {
-	Anchor,
 	Box,
 	Button,
 	Card,
@@ -34,14 +34,15 @@ const ClassCard = props => {
 				<CardBody height='small'>
 					<Image
 						fit='cover'
-						src='//v2.grommet.io/assets/IMG_4245.jpg'
-						a11yTitle='bridge'
+						src='https://nces.ed.gov/programs/coe/images/nav/coe_hp_new.png'
+						a11yTitle='classpicture'
 					/>
 				</CardBody>
 				<Box pad={{ horizontal: 'medium' }} responsive={false}>
 					<Heading level='3' margin={{ vertical: 'medium' }}>
 						English &amp; Language Arts
 					</Heading>
+					<Paragraph margin={{ top: 'none' }}>Grade Level</Paragraph>
 					<Paragraph margin={{ top: 'none' }}>Teacher Name</Paragraph>
 				</Box>
 				<CardFooter>
@@ -53,11 +54,8 @@ const ClassCard = props => {
 								setFavorite(!favorite);
 							}}
 						/>
-						<Anchor
-							href='https://www.collinsdictionary.com/us/dictionary/english/bridge'
-							label='Learn More'
-						/>
 					</Box>
+					<UpdateClassModal />
 					<Text size='medium' color='brand'>
 						Class Desc.
 					</Text>

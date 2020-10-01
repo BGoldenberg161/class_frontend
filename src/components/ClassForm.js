@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import { Main, Box, Button, Form, FormField, TextInput } from 'grommet';
-import { View, Hide, Sign } from 'grommet-icons';
+import { Main, Box, Button, Form, FormField } from 'grommet';
+import { Attraction, Cubes, Yoga } from 'grommet-icons';
 import axios from 'axios'
 
-const MakeClassForm = props => {
+const ClassForm = props => {
 	
 	const [className, setClassName] = useState('')
 	const [gradeLevel, setGradeLevel] = useState(0)
@@ -37,7 +37,7 @@ const MakeClassForm = props => {
 						>
 							<FormField
 								reverse
-								icon={<Sign />}
+								icon={<Attraction />}
 								label='Class Name'
 								name='name'
 								value={className}
@@ -46,7 +46,8 @@ const MakeClassForm = props => {
 								validate={{ regexp: /^[a-z]/i }}
 							/>
 							<FormField
-								icon={<Sign />}
+								reverse
+								icon={<Cubes />}
 								label='Grade Level'
 								name='gradeLevel'
 								type='text'
@@ -56,7 +57,8 @@ const MakeClassForm = props => {
 								validate={{ regexp: /^[0-9]/i }}
 							/>
 							<FormField
-								icon={<Sign />}
+								reverse
+								icon={<Yoga />}
 								label='Teacher'
 								name='teacher'
 								type='text'
@@ -66,7 +68,7 @@ const MakeClassForm = props => {
 								validate={{ regexp: /^[a-z]/i }}
 							/>
 							<Box direction='row' justify='center' margin={{ top: 'large' }}>
-								<Button type='submit' label='Make new class' primary />
+								<Button type='submit' label='Add New Class' primary />
 							</Box>
 						</Form>
 					</Box>
@@ -76,4 +78,4 @@ const MakeClassForm = props => {
 	);
 };
 
-export default MakeClassForm;
+export default ClassForm;
