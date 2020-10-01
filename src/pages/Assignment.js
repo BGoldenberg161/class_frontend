@@ -1,10 +1,14 @@
 import React from 'react';
 import AssignmentCard from '../components/AssignmentCard';
-import { ResponsiveContext, Grid } from 'grommet';
+import AddClassModal from '../components/AddClassModal';
+import { Box, ResponsiveContext, Grid } from 'grommet';
 
 const Assignment = props => {
 	return (
-		<div>
+		<>
+			<Box direction='row' justify='center' margin={{ top: 'large' }}>
+				<AddClassModal />
+			</Box>
 			<ResponsiveContext>
 				{size => {
 					if (size === 'small') {
@@ -43,7 +47,7 @@ const Assignment = props => {
 					}
 				}}
 			</ResponsiveContext>
-		</div>
+		</>
 	);
 };
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import UpdateAssignmentModal from './UpdateAssignmentModal';
 import {
 	Anchor,
 	Box,
@@ -39,9 +40,8 @@ const AssignmentCard = props => {
 				</CardBody>
 				<Box pad={{ horizontal: 'medium' }} responsive={false}>
 					<Heading level='3' margin={{ vertical: 'medium' }}>
-						Class Name
+						Teacher Name
 					</Heading>
-					<Paragraph margin={{ top: 'none' }}>Teacher Name</Paragraph>
 				</Box>
 				<CardFooter>
 					<Box direction='row' align='center' gap='small'>
@@ -52,11 +52,8 @@ const AssignmentCard = props => {
 								setFavorite(!favorite);
 							}}
 						/>
-						<Anchor
-							href='https://www.collinsdictionary.com/us/dictionary/english/bridge'
-							label='Learn More'
-						/>
 					</Box>
+					<UpdateAssignmentModal />
 					<Text size='medium' color='brand'>
 						Assignment Desc.
 					</Text>
