@@ -13,7 +13,7 @@ const AddClassModal = props => {
 						onEsc={() => setShow(false)}
 						onClickOutside={() => setShow(false)}
 					>
-						<ClassForm />
+						<ClassForm {...props} currentUser={props.currentUser} token={props.token} />
 						<Button label='close' onClick={() => setShow(false)} />
 					</Layer>
 				)}

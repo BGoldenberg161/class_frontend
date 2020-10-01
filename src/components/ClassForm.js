@@ -2,31 +2,38 @@ import React, {useState} from 'react';
 import { Main, Box, Button, Form, FormField } from 'grommet';
 import { Attraction, Cubes, Yoga } from 'grommet-icons';
 import axios from 'axios'
+import {Redirect} from 'react-router-dom'
 
 const ClassForm = props => {
 	
 	const [className, setClassName] = useState('')
-	const [gradeLevel, setGradeLevel] = useState(0)
-	const [teacher, setTeacher] = useState('')
+	const [gradeLevel, setGradeLevel] = useState()
+	const [successfulClassCreate, setSuccessfulClassCreate] = useState(false)
+
+	const authorizationHeader = {
+		headers: {'Authorization': `Bearer ${props.token}`}
+	  }
 
 	const handleSubmit = e => {
+		e.preventDefault()
 		axios
 			.post('http://localhost:8000/api/classrooms/', {
 				name: className,
-				gradeLevel: gradeLevel,
-				teacher: teacher,
-			})
+				gradeLevel: gradeLevel
+			},
+			authorizationHeader)
 			.then(res => {
 				console.log(res);
-				console.log(res.data);
+				setSuccessfulClassCreate(true)
 			})
 			.catch(err =>
-				console.log(err, "You've hit an error in the axios call for users")
+				console.log(err, "You've hit an error in the axios call for add class")
 			);
 	};
 
 	return (
 		<div>
+			{/* {successfulClassCreate? <Redirect to={{pathname: `/class/`}} /> : ''} */}
 			<Main pad='large' align='center' justify='center'>
 				<Box fill align='center' justify='center' >
 					<Box width='medium'>
@@ -55,17 +62,6 @@ const ClassForm = props => {
 								onChange={e => setGradeLevel(e.target.value)}
 								required
 								validate={{ regexp: /^[0-9]/i }}
-							/>
-							<FormField
-								reverse
-								icon={<Yoga />}
-								label='Teacher'
-								name='teacher'
-								type='text'
-								value={teacher}
-								onChange={e => setTeacher(e.target.value)}
-								required
-								validate={{ regexp: /^[a-z]/i }}
 							/>
 							<Box direction='row' justify='center' margin={{ top: 'large' }}>
 								<Button type='submit' label='Add New Class' primary />
