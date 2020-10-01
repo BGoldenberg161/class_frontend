@@ -25,7 +25,8 @@ const Profile = (props) => {
 
   return (
     <div >
-    <ProLayout/>
+    <ProLayout />
+    
     </div>
   )
 }

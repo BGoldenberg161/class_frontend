@@ -91,7 +91,7 @@ const Profile = (props) => {
               <AccordionPanel label='Grades'>
                 <Box height='medium' background='light-1'>
                   <ul>
-                    <li>Math: 98.6%, A<Box align="end" pad="small">
+                    <li>Math: 98.6%, A <Box align="end" pad="small">
                       <Stack anchor="center">
                         <Meter
                           type="bar"
@@ -111,7 +111,7 @@ const Profile = (props) => {
                     <li>English: 90.1, A <Box align="end" pad="small">
                       <Stack anchor="center">
                         <Meter
-                          type="circle"
+                          type="bar"
                           background="light-5"
                           values={[{ value: englishValue }]}
                           size="xsmall"
