@@ -1,51 +1,56 @@
 import React from 'react';
 import ClassCard from '../components/ClassCard';
-import { ResponsiveContext, Grid } from 'grommet';
-import UpdateClassForm from '../components/UpdateClassForm'
+import { Box, ResponsiveContext, Grid } from 'grommet';
+import AddClassModal from '../components/AddClassModal';
 
 const Class = props => {
 	return (
-		<ResponsiveContext>
-			{size => {
-				if (size === 'small') {
-					return (
-						<Grid columns={['auto']}>
-							<UpdateClassForm />
-							<ClassCard />
-							<ClassCard />
-							<ClassCard />
-							<ClassCard />
-							<ClassCard />
-							<ClassCard />
-						</Grid>
-					);
-				} else if (size === 'medium') {
-					return (
-						<Grid columns={['auto', 'auto']}>
-							<UpdateClassForm />
-							<ClassCard />
-							<ClassCard />
-							<ClassCard />
-							<ClassCard />
-							<ClassCard />
-							<ClassCard />
-						</Grid>
-					);
-				} else {
-					return (
-						<Grid columns={['auto', 'auto', 'auto']}>
-							<UpdateClassForm />
-							<ClassCard />
-							<ClassCard />
-							<ClassCard />
-							<ClassCard />
-							<ClassCard />
-							<ClassCard />
-						</Grid>
-					);
-				}
-			}}
-		</ResponsiveContext>
+		<>
+			<Box direction='row' justify='center' margin={{ top: 'large' }}>
+				<AddClassModal />
+			</Box>
+
+			<Box direction='row' justify='center' margin={{ top: 'large' }}>
+				<ResponsiveContext>
+					{size => {
+						if (size === 'small') {
+							return (
+								<Grid columns={['auto']}>
+									<ClassCard />
+									<ClassCard />
+									<ClassCard />
+									<ClassCard />
+									<ClassCard />
+									<ClassCard />
+								</Grid>
+							);
+						} else if (size === 'medium') {
+							return (
+								<Grid columns={['auto', 'auto']}>
+									<ClassCard />
+									<ClassCard />
+									<ClassCard />
+									<ClassCard />
+									<ClassCard />
+									<ClassCard />
+								</Grid>
+							);
+						} else {
+							return (
+								<Grid columns={['auto', 'auto', 'auto']}>
+									<ClassCard />
+									<ClassCard />
+									<ClassCard />
+									<ClassCard />
+									<ClassCard />
+									<ClassCard />
+								</Grid>
+							);
+						}
+					}}
+				</ResponsiveContext>
+			</Box>
+		</>
 	);
 };
 
