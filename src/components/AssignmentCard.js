@@ -34,13 +34,13 @@ const AssignmentCard = props => {
 				<CardBody height='small'>
         <Box pad={{ horizontal: 'medium' }} responsive={false}>
         <Heading align='center' level='3' margin={{ vertical: 'medium' }}>
-						Assignment Name
+						{props.assignment.name}
 					</Heading>
           </Box>
 				</CardBody>
 				<Box pad={{ horizontal: 'medium' }} responsive={false}>
 					<Heading level='3' margin={{ vertical: 'medium' }}>
-						Teacher Name
+						{props.assignment.url}
 					</Heading>
 				</Box>
 				<CardFooter>
@@ -53,9 +53,9 @@ const AssignmentCard = props => {
 							}}
 						/>
 					</Box>
-					<UpdateAssignmentModal />
+					<UpdateAssignmentModal {...props} assignmentId={props.assignment.id} currentUser={props.currentUser} token={props.token} assignment={props.assignment} />
 					<Text size='medium' color='brand'>
-						Assignment Desc.
+						{props.assignment.description}
 					</Text>
 					<ExpandButton onClick={() => setOpen(!open)} hoverIndicator />
 				</CardFooter>

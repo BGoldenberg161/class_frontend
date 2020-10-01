@@ -4,45 +4,72 @@ import { Book, Yoga, Article  } from 'grommet-icons';
 import axios from 'axios'
 
 const AssignmentForm = props => {
+
+	const [assignmentName, setAssName] = useState('')
+	const [url, setUrl] = useState('')
+	const [description, setDescription] = useState('')
+
+	const authorizationHeader = {
+		headers: {'Authorization': `Bearer ${props.token}`}
+	  }
+
+	const handleSubmit = e => {
+		e.preventDefault();
+		axios
+			.post('http://localhost:8000/api/assignments/', {
+				name: assignmentName,
+				description: description,
+				url: url,
+			},
+			authorizationHeader)
+			.then(res => {
+				console.log(res);
+				console.log(res.data);
+			})
+			.catch(err =>
+				console.log(err, "You've hit an error in the axios call for users")
+			);
+	};
+
 	return (
 		<div>
 			<Main pad='large' align='center' justify='center'>
 				<Box fill align='center' justify='center' >
 					<Box width='medium'>
 						<Form
-							// onSubmit={e => {
-							// 	handleSubmit(e);
-							// }}
+							onSubmit={e => {
+								handleSubmit(e);
+							}}
 						>
 							<FormField
 								reverse
 								icon={<Book />}
 								label='Assignment Name'
 								name='name'
-								// value={}
-								// onChange={}
+								value={assignmentName}
+								onChange={e => setAssName(e.target.value)}
 								required
 								validate={{ regexp: /^[a-z]/i }}
 							/>
 							<FormField
 								reverse
 								icon={<Yoga />}
-								label='Teacher name'
-								name=''
+								label='url'
+								name='url'
 								type='text'
-								// value={}
-								// onChange={}
+								value={url}
+								onChange={e => setUrl(e.target.value)}
 								required
-								validate={{ regexp: /^[0-9]/i }}
+								validate={{ regexp: /^[a-z]/i }}
 							/>
 							<FormField
 								reverse
 								icon={<Article />}
 								label='Assignment Desc.'
-								name=''
+								name='description'
 								type='text'
-								// value={}
-								// onChange={}
+								value={description}
+								onChange={e => setDescription(e.target.value)}
 								required
 								validate={{ regexp: /^[a-z]/i }}
 							/>
