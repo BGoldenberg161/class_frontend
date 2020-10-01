@@ -7,7 +7,7 @@ const Profile = props => {
   const authorizationHeader = {
     'Authorization': `Bearer ${props.token}`
   }
-
+  // console.log(props)
   useEffect(() => {
     // console.log(props.token)
     // console.log(props.currentUser)
