@@ -1,10 +1,13 @@
-import React, {useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import ClassCard from '../components/ClassCard';
 import { Box, ResponsiveContext, Grid } from 'grommet';
 import AddClassModal from '../components/AddClassModal';
 import axios from 'axios'
 
 const Class = props => {
+
+	const [classes, setClasses] = useState([{name: 'DummyData', gradeLevel: 5}])
+
 	const authorizationHeader = {
 		headers: {'Authorization': `Bearer ${props.token}`}
 	  }
@@ -14,6 +17,7 @@ const Class = props => {
 		axios
 		  .get('http://localhost:8000/api/classrooms/', authorizationHeader)
 		  .then(res => {
+			setClasses(res.data)
 			console.log('Here is the class data: ', res.data)
 		  })
 		  .catch(err =>
@@ -21,10 +25,12 @@ const Class = props => {
 		  )
 	  }, [props.token, props.currentUser])
 
+	
+
 	return (
 		<>
 			<Box direction='row' justify='center' margin={{ top: 'large' }}>
-				<AddClassModal />
+				<AddClassModal {...props} currentUser={props.currentUser} token={props.token} />
 			</Box>
 
 			<Box direction='row' justify='center' margin={{ top: 'large' }}>
@@ -33,34 +39,25 @@ const Class = props => {
 						if (size === 'small') {
 							return (
 								<Grid columns={['auto']}>
-									<ClassCard />
-									<ClassCard />
-									<ClassCard />
-									<ClassCard />
-									<ClassCard />
-									<ClassCard />
+									{classes.map((c, i) => {
+										return <ClassCard key={i} class={c} />
+									})}
 								</Grid>
 							);
 						} else if (size === 'medium') {
 							return (
 								<Grid columns={['auto', 'auto']}>
-									<ClassCard />
-									<ClassCard />
-									<ClassCard />
-									<ClassCard />
-									<ClassCard />
-									<ClassCard />
+									{classes.map((c, i) => {
+										return <ClassCard key={i} class={c} />
+									})}
 								</Grid>
 							);
 						} else {
 							return (
 								<Grid columns={['auto', 'auto', 'auto']}>
-									<ClassCard />
-									<ClassCard />
-									<ClassCard />
-									<ClassCard />
-									<ClassCard />
-									<ClassCard />
+									{classes.map((c, i) => {
+										return <ClassCard key={i} class={c} />
+									})}
 								</Grid>
 							);
 						}

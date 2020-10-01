@@ -40,10 +40,10 @@ const ClassCard = props => {
 				</CardBody>
 				<Box pad={{ horizontal: 'medium' }} responsive={false}>
 					<Heading level='3' margin={{ vertical: 'medium' }}>
-						English &amp; Language Arts
+						{props.class.name}
 					</Heading>
-					<Paragraph margin={{ top: 'none' }}>Grade Level</Paragraph>
-					<Paragraph margin={{ top: 'none' }}>Teacher Name</Paragraph>
+					<Paragraph margin={{ top: 'none' }}>Grade Level: {props.class.gradeLevel}</Paragraph>
+					<Paragraph margin={{ top: 'none' }}>Teacher Id: {props.class.teacher}</Paragraph>
 				</Box>
 				<CardFooter>
 					<Box direction='row' align='center' gap='small'>
@@ -55,7 +55,7 @@ const ClassCard = props => {
 							}}
 						/>
 					</Box>
-					<UpdateClassModal />
+					<UpdateClassModal {...props} classId={props.class.id} currentUser={props.currentUser} token={props.token} />
 					<Text size='medium' color='brand'>
 						Class Desc.
 					</Text>

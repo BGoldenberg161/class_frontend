@@ -12,7 +12,7 @@ const UpdateClassModal = props => {
 					onEsc={() => setShow(false)}
 					onClickOutside={() => setShow(false)}
 				>
-					<UpdateClassForm />
+					<UpdateClassForm {...props} classId={props.classId} currentUser={props.currentUser} token={props.token} />
 					<Button label='close' onClick={() => setShow(false)} />
 				</Layer>
 			)}

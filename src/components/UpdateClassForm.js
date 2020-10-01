@@ -7,15 +7,19 @@ const UpdateClassForm = props => {
 	
 	const [className, setClassName] = useState('')
 	const [gradeLevel, setGradeLevel] = useState()
-	const [teacher, setTeacher] = useState('')
+
+	const authorizationHeader = {
+		headers: {'Authorization': `Bearer ${props.token}`}
+	  }
 
 	const handleSubmit = e => {
+		e.preventDefault()
 		axios
-			.put('http://localhost:8000/api/classroom/3', {
+			.put(`http://localhost:8000/api/classroom/${props.classId}/`, {
 				name: className,
-				gradeLevel: gradeLevel,
-				teacher: teacher,
-			})
+				gradeLevel: gradeLevel
+			}, 
+			authorizationHeader)
 			.then(res => {
 				console.log(res);
 				console.log(res.data);
@@ -55,17 +59,6 @@ const UpdateClassForm = props => {
 								onChange={e => setGradeLevel(e.target.value)}
 								required
 								validate={{ regexp: /^[0-9]/i }}
-							/>
-							<FormField
-								reverse
-								icon={<Yoga />}
-								label='Teacher'
-								name='teacher'
-								type='text'
-								value={teacher}
-								onChange={e => setTeacher(e.target.value)}
-								required
-								validate={{ regexp: /^[a-z]/i }}
 							/>
 							<Box direction='row' justify='center' margin={{ top: 'large' }}>
 								<Button type='submit' label='Update Class' primary />
