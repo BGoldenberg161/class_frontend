@@ -6,9 +6,11 @@ import { Toast } from "grommet-icons";
 import { Link } from 'react-router-dom'
 // import DjangoCSRFToken from "django-react-csrftoken"
 
-const Profile = (props) => {
+const ProLayout = (props) => {
+  console.log(props)
   const uploadedImage = React.useRef(null);
   const imageUploader = React.useRef(null);
+
   const handleImageUpload = e => {
     const [file] = e.target.files;
     if (file) {
@@ -52,8 +54,8 @@ const Profile = (props) => {
               display: "none"
             }}
           />
-           <Heading level='3' margin={{ vertical: 'medium' }}>
-           User Profile
+          <Heading level='3' margin={{ vertical: 'medium' }}>
+            User Profile
 					</Heading>
           <img
             ref={uploadedImage}
@@ -65,11 +67,11 @@ const Profile = (props) => {
             }}
           />
           <Button alignSelf="end" icon={<Toast />} onClick={() => imageUploader.current.click()}></Button>
-          <Heading level='3' margin={{ vertical: 'medium' }}>
-            Username:
+          <Heading level='6' margin={{ vertical: 'medium' }}>
+            Username:{props.user.username}
 					</Heading>
-          <Heading level='3' margin={{ vertical: 'medium' }}>
-            Email:
+          <Heading level='6' margin={{ vertical: 'medium' }}>
+            Email:{props.user.email}
 					</Heading>
         </Box>
 
@@ -170,5 +172,5 @@ const Profile = (props) => {
   )
 }
 
-export default Profile
+export default ProLayout
 
