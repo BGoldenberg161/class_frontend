@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import ClassCard from '../components/ClassCard';
 import { Box, ResponsiveContext, Grid } from 'grommet';
 import AddClassModal from '../components/AddClassModal';
