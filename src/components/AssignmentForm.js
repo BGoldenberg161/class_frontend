@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { Main, Box, Button, Form, FormField } from 'grommet';
-import { Book, Yoga, Article  } from 'grommet-icons';
+import { Book, Aggregate, Article  } from 'grommet-icons';
 import axios from 'axios'
 
 const AssignmentForm = props => {
@@ -53,7 +53,7 @@ const AssignmentForm = props => {
 							/>
 							<FormField
 								reverse
-								icon={<Yoga />}
+								icon={<Aggregate />}
 								label='url'
 								name='url'
 								type='text'
