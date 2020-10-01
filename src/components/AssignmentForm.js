@@ -10,17 +10,17 @@ const AssignmentForm = props => {
 				<Box fill align='center' justify='center' >
 					<Box width='medium'>
 						<Form
-							onSubmit={e => {
-								handleSubmit(e);
-							}}
+							// onSubmit={e => {
+							// 	handleSubmit(e);
+							// }}
 						>
 							<FormField
 								reverse
 								icon={<Book />}
 								label='Assignment Name'
 								name='name'
-								value={}
-								onChange={}
+								// value={}
+								// onChange={}
 								required
 								validate={{ regexp: /^[a-z]/i }}
 							/>
@@ -30,8 +30,8 @@ const AssignmentForm = props => {
 								label='Teacher name'
 								name=''
 								type='text'
-								value={}
-								onChange={}
+								// value={}
+								// onChange={}
 								required
 								validate={{ regexp: /^[0-9]/i }}
 							/>
@@ -41,8 +41,8 @@ const AssignmentForm = props => {
 								label='Assignment Desc.'
 								name=''
 								type='text'
-								value={}
-								onChange={}
+								// value={}
+								// onChange={}
 								required
 								validate={{ regexp: /^[a-z]/i }}
 							/>

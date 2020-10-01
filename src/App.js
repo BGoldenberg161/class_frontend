@@ -23,6 +23,9 @@ const theme = {
 		colors: {
 			brand: '#EDA306',
 		},
+		
+	  dark: 'dark',
+		light: 'light',
 		elevation: {
 			light: {
 				xsmall: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
@@ -100,7 +103,8 @@ function App() {
       setCurrentUser(jwtDecode(token))
     }
   }, [token])
-  
+	
+	
   
 
 	return (
