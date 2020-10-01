@@ -1,7 +1,6 @@
 import React from 'react';
 import UpdateAssignmentModal from './UpdateAssignmentModal';
 import {
-	Anchor,
 	Box,
 	Button,
 	Card,

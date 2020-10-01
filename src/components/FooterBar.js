@@ -8,23 +8,23 @@ const FooterBar = props => {
 			<Box
 				tag='header'
 				direction='row'
-				// align='center'
-				// justify='between'
+				align='center'
+				justify='between'
 				background='brand'
 				pad={{ left: 'small', right: 'small', vertical: 'small' }}
 				elevation='medium'
-				style={{ zIndex: '1', position: "absolute", bottom: '0', width: '100vw' }}
+				style={{
+					zIndex: '1',
+					position: 'absolute',
+					bottom: '0',
+					width: '100vw',
+				}}
 			>
-				<Footer
-					background='brand'
-					pad={{ horizontal: 'large', vertical: 'small' }}
-				>
-					<Box direction='row' gap='small'>
-						<FormNext color='black' />
-						<Text alignSelf='center' weight='bold'>
-							c<span style={{ color: 'green' }}>ℓ</span>ass
-						</Text>
-					</Box>
+				<Footer>
+					<FormNext color='black' />
+					<Text alignSelf='center' weight='bold'>
+						c<span style={{ color: 'green' }}>ℓ</span>ass
+					</Text>
 					<Text textAlign='center' size='small' color='green'>
 						© 2020
 					</Text>
