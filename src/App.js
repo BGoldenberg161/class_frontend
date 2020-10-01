@@ -10,7 +10,7 @@ import Grade from './pages/Grade';
 import Class from './pages/Class';
 import FourOhFour from './pages/FourOhFour';
 import Layout from './components/Layout';
-
+import jwtDecode from 'jwt-decode'
 import { Grommet } from 'grommet';
 import { CaretDown } from 'grommet-icons';
 // import { dark } from 'grommet/themes'
@@ -84,13 +84,20 @@ function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [token, setToken] = useState('')
+  const [currentUser, setCurrentUser] = useState({})
+
+
 
   useEffect(() => {
     if (localStorage.getItem(authTokenPath) && token === ''){
+      let decoded = jwtDecode(localStorage.getItem(authTokenPath))
       setIsLoggedIn(true)
       setToken(localStorage.getItem(authTokenPath))
+      setCurrentUser(decoded)
+      console.log('♦️', currentUser)
     } else if (localStorage.getItem(authTokenPath) && token !== '') {
       setIsLoggedIn(true)
+      setCurrentUser(jwtDecode(token))
     }
   }, [token])
   
@@ -103,7 +110,7 @@ function App() {
 					<Route path='/about' component={About} />
 					<Route path='/signup' component={Signup} />
 					<Route path='/login' render={(props) => <Login {...props} setToken={setToken} /> } />
-					<Route path='/profile' component={Profile} />
+					<Route path='/profile' render={(props) => <Profile {...props} currentUser={currentUser} token={token} /> } />
 					<Route path='/assignment' component={Assignment} />
 					<Route path='/grade' component={Grade} />
 					<Route path='/class' render={(props) => <Class {...props} token={token} /> } />
