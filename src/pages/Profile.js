@@ -5,11 +5,10 @@ import ProLayout from '../components/ProLayout'
 
 const Profile = props => {
   const authorizationHeader = {
-    'Authorization': `Bearer ${props.token}`
+    headers: {'Authorization': `Bearer ${props.token}`}
   }
   // console.log(props)
   useEffect(() => {
-
     axios
       .get(`http://localhost:8000/api/user/${props.currentUser.user_id}`, authorizationHeader)
       .then(res => {
