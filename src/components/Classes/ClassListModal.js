@@ -1,22 +1,22 @@
 import React, {useState} from 'react';
-import AssignmentList from './AssignmentList';
+import ClassList from './ClassList';
 import { Box, Button, Layer } from 'grommet';
 
-const AssignmentListModal = props => {
+const ClassListModal = props => {
 	const [show, setShow] = useState();
 	return (
 		<div>
-				<Button label='Assign to Class' onClick={() => setShow(true)} />
+				<Button label='Add Students' onClick={() => setShow(true)} />
 				{show && (
 					<Layer
 						onEsc={() => setShow(false)}
 						onClickOutside={() => setShow(false)}
 					>
-						<AssignmentList
+						<ClassList
 							{...props}
 							currentUser={props.currentUser}
 							token={props.token}
-							assignment={props.assignment}
+							classroom={props.classroom}
 						/>
 						<Button label='close' style={{border: 'none', padding: '3vh 0'}} onClick={() => setShow(false)} />
 					</Layer>
@@ -25,4 +25,4 @@ const AssignmentListModal = props => {
 	);
 };
 
-export default AssignmentListModal;
+export default ClassListModal;
