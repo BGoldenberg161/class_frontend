@@ -3,24 +3,14 @@ import axios from "axios"
 import { Accordion, AccordionPanel, Button, Box, Grid, Meter, Stack, Text, Heading } from "grommet";
 import { Toast } from "grommet-icons";
 import { Link } from 'react-router-dom'
+import Cloudinary from './Cloudinary'
+
 // import DjangoCSRFToken from "django-react-csrftoken"
 
-const Profile = (props) => {
-  const uploadedImage = React.useRef(null);
-  const imageUploader = React.useRef(null);
-  const handleImageUpload = e => {
-    const [file] = e.target.files;
-    if (file) {
-      const reader = new FileReader();
-      const { current } = uploadedImage;
-      console.log(current)
-      current.file = file;
-      reader.onload = e => {
-        current.src = e.target.result;
-      };
-      reader.readAsDataURL(file);
-    }
-  }
+const ProLayout = (props) => {
+  console.log(props)
+
+
   // meter for main
   const mathValue = 98.6;
   const englishValue = 90.1;
@@ -41,35 +31,17 @@ const Profile = (props) => {
         gap="small"
 
       >
-        <Box align="center" alignContent="center" background="light-4" gridArea="sidebar" style={{}}>
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handleImageUpload}
-            ref={imageUploader}
-            style={{
-              display: "none"
-            }}
-          />
-           <Heading level='3' margin={{ vertical: 'medium' }}>
-           User Profile
-					</Heading>
-          <img
-            ref={uploadedImage}
-            style={{
-              width: "100px",
-              height: "100px",
-              borderRadius: '100px',
-
-            }}
-          />
-          <Button alignSelf="end" icon={<Toast />} onClick={() => imageUploader.current.click()}></Button>
+        <Box>
           <Heading level='3' margin={{ vertical: 'medium' }}>
-            Username:
+            User Profile
 					</Heading>
-          <Heading level='3' margin={{ vertical: 'medium' }}>
-            Email:
-					</Heading>
+          <Heading level='6' margin={{ vertical: 'medium' }}>
+            <Cloudinary />
+            Username:{props.user.username}
+          </Heading>
+          <Heading level='6' margin={{ vertical: 'medium' }}>
+            Email:{props.user.email}
+          </Heading>
         </Box>
 
         <Box pad={{ horizontal: 'medium' }} responsive={false} gridArea="main" >
@@ -169,5 +141,5 @@ const Profile = (props) => {
   )
 }
 
-export default Profile
+export default ProLayout
 

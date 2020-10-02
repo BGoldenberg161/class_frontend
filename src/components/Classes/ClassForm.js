@@ -1,11 +1,11 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Main, Box, Button, Form, FormField } from 'grommet';
 import { Attraction, Cubes } from 'grommet-icons';
 import axios from 'axios'
 
 
 const ClassForm = props => {
-	
+
 	const [className, setClassName] = useState('')
 	const [gradeLevel, setGradeLevel] = useState()
 

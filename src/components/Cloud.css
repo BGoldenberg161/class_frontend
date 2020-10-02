@@ -1,0 +1,18 @@
+.cloud {
+    text-align: center;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+  .container {
+    width: 55%;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-evenly;
+  }
