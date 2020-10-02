@@ -33,26 +33,43 @@ const AssignmentList = props => {
 	const [dense, setDense] = useState(false);
 	const [secondary, setSecondary] = useState(false);
 	const [classrooms, setClassrooms] = useState([])
+	const [assignedClassrooms, setAssignedClassrooms] = useState([])
 	
 	const authorizationHeader = {
 		headers: {'Authorization': `Bearer ${props.token}`}
 	}
 
 	useEffect(() => {
+		
+		const fetchData = async () => {
+			const getAssignedClasses = await axios(
+			  `http://localhost:8000/api/view-classrooms-assignments/${props.assignment.id}`,
+			  authorizationHeader
+			  )
+			const getTeachersClasses = await axios(
+			  `http://localhost:8000/api/classrooms/`,
+			  authorizationHeader
+			  )
+			setClassrooms(getTeachersClasses.data)
+			console.log(classrooms)
+			console.log(getTeachersClasses.data)
+			setAssignedClassrooms(getAssignedClasses.data)
+			console.log(assignedClassrooms)
+			console.log(getAssignedClasses.data)
+		}
+		fetchData()
+	}, [props.token, props.currentUser])
+
+	const addToClass = (id) => {
+		console.log(id)
 		axios
-		// path to get all classrooms associated with assignment
-		  .get('http://localhost:8000/api/classrooms-assignments/', {
-			assignment: props.assignment.id
-			}
-			,authorizationHeader)
-		  .then(res => {
-			setClassrooms(res.data)
-			console.log('Here is the class data: ', res.data)
-		  })
-		  .catch(err =>
-			console.log(err, "You've hit an error in the axios call for assignments")
-		  )
-	  }, [props.token, props.currentUser])
+			.post('http://localhost:8000/api/create-classrooms-assignments/', {
+				classroom: id,
+				assignment: props.assignment.id
+			},
+			authorizationHeader
+			)
+	}
 
 
 	return (
@@ -64,7 +81,7 @@ const AssignmentList = props => {
 					</Typography>
 					<div className={classes.demo}>
 						<List dense={dense}>
-							{classrooms.map((classroom, i) => {
+							{assignedClassrooms.map((classroom, i) => {
 								return(<ListItem key={i}>
 											<ListItemAvatar>
 												<Avatar>
@@ -91,24 +108,24 @@ const AssignmentList = props => {
 					</Typography>
 					<div className={classes.demo}>
 						<List dense={dense}>
-							{/* {generate(
-								<ListItem>
-									<ListItemAvatar>
-										<Avatar>
-											<Class />
-										</Avatar>
-									</ListItemAvatar>
-									<ListItemText
-										primary='Single-line item'
-										secondary={secondary ? 'Secondary text' : null}
-									/>
-									<ListItemSecondaryAction>
-										<IconButton edge='end' aria-label='delete'>
-											<Add />
-										</IconButton>
-									</ListItemSecondaryAction>
-								</ListItem>
-							)} */}
+						{classrooms.map((classroom, i) => {
+							return(<ListItem key={i}>
+										<ListItemAvatar>
+											<Avatar>
+												<Class />
+											</Avatar>
+										</ListItemAvatar>
+										<ListItemText
+											primary={classroom.name}
+											secondary={classroom.gradeLevel}
+										/>
+										<ListItemSecondaryAction>
+											<IconButton edge='end' aria-label='add' onClick={(e) => addToClass(classroom.id)}>
+												<Add />
+											</IconButton>
+										</ListItemSecondaryAction>
+									</ListItem>)
+							})}
 						</List>
 					</div>
 				</Grid>
