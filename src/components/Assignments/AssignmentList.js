@@ -28,14 +28,47 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const AssignmentList = props => {
-  const classes = useStyles()
-  const [dense, setDense] = useState(false)
-  const [secondary, setSecondary] = useState(false)
-  const [classrooms, setClassrooms] = useState([])
+	const classes = useStyles();
+	const [dense, setDense] = useState(false);
+	const [secondary, setSecondary] = useState(false);
+	const [classrooms, setClassrooms] = useState([])
+	const [assignedClassrooms, setAssignedClassrooms] = useState([])
+	
+	const authorizationHeader = {
+		headers: {'Authorization': `Bearer ${props.token}`}
+	}
 
-  const authorizationHeader = {
-    headers: { Authorization: `Bearer ${props.token}` },
-  }
+	useEffect(() => {
+		
+		const fetchData = async () => {
+			const getAssignedClasses = await axios(
+			  `http://localhost:8000/api/view-classrooms-assignments/${props.assignment.id}`,
+			  authorizationHeader
+			  )
+			const getTeachersClasses = await axios(
+			  `http://localhost:8000/api/classrooms/`,
+			  authorizationHeader
+			  )
+			setClassrooms(getTeachersClasses.data)
+			console.log(classrooms)
+			console.log(getTeachersClasses.data)
+			setAssignedClassrooms(getAssignedClasses.data)
+			console.log(assignedClassrooms)
+			console.log(getAssignedClasses.data)
+		}
+		fetchData()
+	}, [props.token, props.currentUser])
+
+	const addToClass = (id) => {
+		console.log(id)
+		axios
+			.post('http://localhost:8000/api/create-classrooms-assignments/', {
+				classroom: id,
+				assignment: props.assignment.id
+			},
+			authorizationHeader
+			)
+	}
 
   useEffect(() => {
     axios
@@ -59,72 +92,66 @@ const AssignmentList = props => {
       )
   }, [props.token, props.currentUser])
 
-  return (
-    <>
-      <Grid
-        container
-        alignItems="center"
-        alignContent="center"
-        style={{ padding: "3vh 3vw" }}>
-        <Grid item xs={12} md={6}>
-          <Typography variant="h6" className={classes.title}>
-            Assigned Classes
-          </Typography>
-          <div className={classes.demo}>
-            <List dense={dense}>
-              {classrooms.map((classroom, i) => {
-                return (
-                  <ListItem key={i}>
-                    <ListItemAvatar>
-                      <Avatar>
-                        <Class />
-                      </Avatar>
-                    </ListItemAvatar>
-                    <ListItemText
-                      primary={classroom.name}
-                      secondary={classroom.gradeLevel}
-                    />
-                    <ListItemSecondaryAction>
-                      <IconButton edge="end" aria-label="delete">
-                        <DeleteIcon />
-                      </IconButton>
-                    </ListItemSecondaryAction>
-                  </ListItem>
-                )
-              })}
-            </List>
-          </div>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <Typography variant="h6" className={classes.title}>
-            Assign to a New Class
-          </Typography>
-          <div className={classes.demo}>
-            <List dense={dense}>
-              {/* {generate(
-								<ListItem>
-									<ListItemAvatar>
-										<Avatar>
-											<Class />
-										</Avatar>
-									</ListItemAvatar>
-									<ListItemText
-										primary='Single-line item'
-										secondary={secondary ? 'Secondary text' : null}
-									/>
-									<ListItemSecondaryAction>
-										<IconButton edge='end' aria-label='delete'>
-											<Add />
-										</IconButton>
-									</ListItemSecondaryAction>
-								</ListItem>
-							)} */}
-            </List>
-          </div>
-        </Grid>
-      </Grid>
-    </>
-  )
-}
+	return (
+		<>
+			<Grid container alignItems='center' alignContent='center' style={{padding: '3vh 3vw'}}>
+				<Grid item xs={12} md={6}>
+					<Typography variant='h6' className={classes.title}>
+						Assigned Classes
+					</Typography>
+					<div className={classes.demo}>
+						<List dense={dense}>
+							{assignedClassrooms.map((classroom, i) => {
+								return(<ListItem key={i}>
+											<ListItemAvatar>
+												<Avatar>
+													<Class />
+												</Avatar>
+											</ListItemAvatar>
+											<ListItemText
+												primary={classroom.name}
+												secondary={classroom.gradeLevel}
+											/>
+											<ListItemSecondaryAction>
+												<IconButton edge='end' aria-label='delete'>
+													<DeleteIcon />
+												</IconButton>
+											</ListItemSecondaryAction>
+										</ListItem>)
+							})}
+						</List>
+					</div>
+				</Grid>
+				<Grid item xs={12} md={6}>
+					<Typography variant='h6' className={classes.title}>
+						Assign to a New Class
+					</Typography>
+					<div className={classes.demo}>
+						<List dense={dense}>
+						{classrooms.map((classroom, i) => {
+							return(<ListItem key={i}>
+										<ListItemAvatar>
+											<Avatar>
+												<Class />
+											</Avatar>
+										</ListItemAvatar>
+										<ListItemText
+											primary={classroom.name}
+											secondary={classroom.gradeLevel}
+										/>
+										<ListItemSecondaryAction>
+											<IconButton edge='end' aria-label='add' onClick={(e) => addToClass(classroom.id)}>
+												<Add />
+											</IconButton>
+										</ListItemSecondaryAction>
+									</ListItem>)
+							})}
+						</List>
+					</div>
+				</Grid>
+			</Grid>
+		</>
+	);
+};
 
 export default AssignmentList
