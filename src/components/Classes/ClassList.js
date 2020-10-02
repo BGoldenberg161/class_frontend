@@ -67,12 +67,13 @@ const ClassList = props => {
 	const addToClass = (id) => {
 		console.log(id)
 		axios
-			.post('http://localhost:8000/api/create-classrooms-students/', {
+			.post('http://localhost:8000/api/students-classrooms/', {
 				student: id,
 				classroom: props.classroom.id
 			},
 			authorizationHeader
 			)
+		fetchData()
 	}
 
 
