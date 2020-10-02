@@ -18,7 +18,7 @@ const AssignmentListModal = props => {
 							token={props.token}
 							assignment={props.assignment}
 						/>
-						<Button label='close' onClick={() => setShow(false)} />
+						<Button label='close' style={{border: 'none', padding: '3vh 0'}} onClick={() => setShow(false)} />
 					</Layer>
 				)}
 		</div>
