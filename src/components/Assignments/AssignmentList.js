@@ -81,7 +81,7 @@ const AssignmentList = props => {
 	return (
 		<>
 			<Grid container spacing={2} className={classes.root} alignItems='center' alignContent='center' style={{padding: '3vh 3vw'}}>
-				<Grid item className={classes.gridItem} xs={12} md={6}>
+				<Grid item className={classes.gridItem} xs={12}>
 					<Typography variant='h6' className={classes.title}>
 						Assigned Classes
 					</Typography>
@@ -108,7 +108,7 @@ const AssignmentList = props => {
 						</List>
 					</div>
 				</Grid>
-				<Grid item className={classes.gridItem} xs={12} md={6}>
+				<Grid item className={classes.gridItem} xs={12}>
 					<Typography variant='h6' className={classes.title}>
 						Assign to a New Class
 					</Typography>
