@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Anchor, Main, Box, Image, Paragraph } from 'grommet';
 import { Home } from 'grommet-icons';
 
@@ -23,7 +24,7 @@ const FourOhFour = props => {
 					/>
 				</Box>
 				<Paragraph>404, Page not found..</Paragraph>
-				<Anchor href='/' color='#20A464' icon={<Home />} hoverIndicator />
+				<Anchor as={Link} to='/' color='#6FFFB0' icon={<Home />} hoverIndicator />
 			</Main>
 		</div>
 	);
