@@ -1,7 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Anchor, Box, Heading } from 'grommet';
-import { Home, Cli, User, Catalog, Achievement, Workshop, FingerPrint, Login } from 'grommet-icons';
+import {
+	Home,
+	Cli,
+	User,
+	Catalog,
+	Achievement,
+	Workshop,
+	FingerPrint,
+	Login,
+	Logout,
+} from 'grommet-icons';
 
 const AppBar = props => {
 	return (
@@ -17,14 +27,13 @@ const AppBar = props => {
 				style={{ zIndex: '1' }}
 			>
 				<Heading level='3' margin='none'>
-					c<span style={{ color: 'green' }}>ℓ</span>ass
+					c<span style={{ color: '#6FFFB0' }}>ℓ</span>ass
 				</Heading>
 
 				<Anchor
 					as={Link}
 					to='/'
 					label='Home'
-					color='#20A464'
 					icon={<Home />}
 					hoverIndicator
 				/>
@@ -32,7 +41,6 @@ const AppBar = props => {
 					as={Link}
 					to='/about'
 					label='About'
-					color='#20A464'
 					icon={<Cli />}
 					hoverIndicator
 				/>
@@ -40,7 +48,6 @@ const AppBar = props => {
 					as={Link}
 					to='/profile'
 					label='Profile'
-					color='#20A464'
 					icon={<User />}
 					hoverIndicator
 				/>
@@ -48,7 +55,6 @@ const AppBar = props => {
 					as={Link}
 					to='/assignment'
 					label='Assignment'
-					color='#20A464'
 					icon={<Catalog />}
 					hoverIndicator
 				/>
@@ -56,7 +62,6 @@ const AppBar = props => {
 					as={Link}
 					to='/grade'
 					label='Grades'
-					color='#20A464'
 					icon={<Achievement />}
 					hoverIndicator
 				/>
@@ -64,7 +69,6 @@ const AppBar = props => {
 					as={Link}
 					to='/class'
 					label='Class'
-					color='#20A464'
 					icon={<Workshop />}
 					hoverIndicator
 				/>
@@ -72,7 +76,6 @@ const AppBar = props => {
 					as={Link}
 					to='/signup'
 					label='Signup'
-					color='#20A464'
 					icon={<FingerPrint />}
 					hoverIndicator
 				/>
@@ -80,8 +83,15 @@ const AppBar = props => {
 					as={Link}
 					to='/login'
 					label='Login'
-					color='#20A464'
 					icon={<Login />}
+					hoverIndicator
+				/>
+				<Anchor
+					onClick={() => props.logoutFunction()}
+					as={Link}
+					to='/'
+					label='Logout'
+					icon={<Logout />}
 					hoverIndicator
 				/>
 			</Box>

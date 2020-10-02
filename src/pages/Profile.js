@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios"
-import ProLayout from '../components/ProLayout'
+import ProLayout from '../components/Partials/ProLayout'
 
 
 const Profile = props => {

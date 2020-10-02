@@ -1,33 +1,34 @@
 import React, {useState} from 'react';
 import { Main, Box, Button, Form, FormField } from 'grommet';
-import { Book, Yoga, Article  } from 'grommet-icons';
+import { Book, Aggregate, Article  } from 'grommet-icons';
 import axios from 'axios'
 
-const AssignmentForm = props => {
+const UpdateAssignmentForm = props => {
 
-	const [assignmentName, setAssName] = useState('')
-	const [url, setUrl] = useState('')
-	const [description, setDescription] = useState('')
+	const [assignmentName, setAssignmentName] = useState(props.assignment.name)
+	const [url, setUrl] = useState(props.assignment.url)
+	const [description, setDescription] = useState(props.assignment.description)
 
 	const authorizationHeader = {
 		headers: {'Authorization': `Bearer ${props.token}`}
 	  }
 
 	const handleSubmit = e => {
-		e.preventDefault();
+		e.preventDefault()
+		console.log(authorizationHeader)
 		axios
-			.post('http://localhost:8000/api/assignments/', {
+			.put(`http://localhost:8000/api/assignment/${props.assignmentId}/`, {
 				name: assignmentName,
-				description: description,
 				url: url,
-			},
+				description: description
+			}, 
 			authorizationHeader)
 			.then(res => {
 				console.log(res.data);
 				props.fetchAssignments()
 			})
 			.catch(err =>
-				console.log(err, "You've hit an error in the axios call for users")
+				console.log(err, "You've hit an error in the axios call for updateClass")
 			);
 	};
 
@@ -47,20 +48,19 @@ const AssignmentForm = props => {
 								label='Assignment Name'
 								name='name'
 								value={assignmentName}
-								onChange={e => setAssName(e.target.value)}
+								onChange={e => setAssignmentName(e.target.value)}
 								required
 								validate={{ regexp: /^[a-z]/i }}
 							/>
 							<FormField
 								reverse
-								icon={<Yoga />}
-								label='url'
+								icon={<Aggregate />}
+								label='Url'
 								name='url'
 								type='text'
 								value={url}
 								onChange={e => setUrl(e.target.value)}
 								required
-								validate={{ regexp: /^[a-z]/i }}
 							/>
 							<FormField
 								reverse
@@ -74,7 +74,7 @@ const AssignmentForm = props => {
 								validate={{ regexp: /^[a-z]/i }}
 							/>
 							<Box direction='row' justify='center' margin={{ top: 'large' }}>
-								<Button type='submit' label='Add New Assignment' primary />
+								<Button type='submit' label='Update Assignment' primary />
 							</Box>
 						</Form>
 					</Box>
@@ -84,4 +84,4 @@ const AssignmentForm = props => {
 	);
 };
 
-export default AssignmentForm;
+export default UpdateAssignmentForm;

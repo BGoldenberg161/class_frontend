@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { Main, Box, Button, Form, FormField } from 'grommet';
-import {  Attraction, Cubes, Yoga} from 'grommet-icons';
+import {  Attraction, Cubes } from 'grommet-icons';
 import axios from 'axios'
 
 const UpdateClassForm = props => {

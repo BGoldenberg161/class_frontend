@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import AssignmentCard from '../components/AssignmentCard';
-import AddAssignmentModal from '../components/AddAssignmentModal';
+import AssignmentCard from '../components/Assignments/AssignmentCard';
+import AddAssignmentModal from '../components/Assignments/AddAssignmentModal';
 import { Box, ResponsiveContext, Grid } from 'grommet';
 import axios from 'axios'
 
