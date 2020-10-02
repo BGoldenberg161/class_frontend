@@ -12,7 +12,12 @@ const AssignmentListModal = props => {
 						onEsc={() => setShow(false)}
 						onClickOutside={() => setShow(false)}
 					>
-						<AssignmentList />
+						<AssignmentList
+							{...props}
+							currentUser={props.currentUser}
+							token={props.token}
+							assignment={props.assignment}
+						/>
 						<Button label='close' onClick={() => setShow(false)} />
 					</Layer>
 				)}
