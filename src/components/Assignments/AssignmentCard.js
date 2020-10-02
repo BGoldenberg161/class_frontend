@@ -62,7 +62,12 @@ const AssignmentCard = props => {
 						assignment={props.assignment}
 						fetchAssignments={props.fetchAssignments}
 					/>
-					<AssignmentListModal />
+					<AssignmentListModal 
+						{...props}
+						currentUser={props.currentUser}
+						token={props.token}
+						assignment={props.assignment}
+					/>
 					<ExpandButton onClick={() => setOpen(!open)} hoverIndicator />
 				</CardFooter>
 				<Collapsible open={open}>
