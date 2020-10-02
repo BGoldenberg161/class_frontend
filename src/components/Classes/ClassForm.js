@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import { Main, Box, Button, Form, FormField } from 'grommet';
-import { Attraction, Cubes, Yoga } from 'grommet-icons';
+import { Attraction, Cubes } from 'grommet-icons';
 import axios from 'axios'
-import {Redirect} from 'react-router-dom'
+
 
 const ClassForm = props => {
 	
