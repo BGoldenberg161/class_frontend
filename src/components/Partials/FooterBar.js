@@ -26,7 +26,7 @@ const FooterBar = props => {
 						c<span style={{ color: '#6FFFB0' }}>ℓ</span>ass
 					</Text>
 					<Text textAlign='center' size='small'>
-						© 2020
+						© 2020 All rights reserved.
 					</Text>
 				</Footer>
 			</Box>
