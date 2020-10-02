@@ -15,6 +15,7 @@ import DeleteIcon from "@material-ui/icons/Delete"
 import axios from "axios"
 
 const useStyles = makeStyles(theme => ({
+<<<<<<< HEAD
   root: {
     flexGrow: 1,
     maxWidth: 752,
@@ -26,6 +27,26 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(4, 0, 2),
   },
 }))
+=======
+	root: {
+		flexGrow: 1,
+		maxWidth: 752,
+		position: 'relative',
+		overflow: 'scroll',
+		marginTop: '2vh',
+	},
+	gridItem: {
+		maxHeight: '50vh'
+	},
+	demo: {
+		backgroundColor: theme.palette.background.paper,
+	},
+	title: {
+		margin: theme.spacing(4, 0, 2),
+	},
+}));
+
+>>>>>>> 288d345f5b0412d018bbc6a4acb2c9d37d400728
 
 const AssignmentList = props => {
 	const classes = useStyles();
@@ -73,8 +94,8 @@ const AssignmentList = props => {
 
 	return (
 		<>
-			<Grid container alignItems='center' alignContent='center' style={{padding: '3vh 3vw'}}>
-				<Grid item xs={12} md={6}>
+			<Grid container spacing={2} className={classes.root} alignItems='center' alignContent='center' style={{padding: '3vh 3vw'}}>
+				<Grid item className={classes.gridItem} xs={12}>
 					<Typography variant='h6' className={classes.title}>
 						Assigned Classes
 					</Typography>
@@ -101,7 +122,7 @@ const AssignmentList = props => {
 						</List>
 					</div>
 				</Grid>
-				<Grid item xs={12} md={6}>
+				<Grid item className={classes.gridItem} xs={12}>
 					<Typography variant='h6' className={classes.title}>
 						Assign to a New Class
 					</Typography>
