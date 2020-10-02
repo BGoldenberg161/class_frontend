@@ -37,6 +37,8 @@ const Class = props => {
 		  )
 	  }, [props.token, props.currentUser])
 
+	  
+
 	
 	
 
