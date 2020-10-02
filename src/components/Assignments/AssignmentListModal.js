@@ -6,7 +6,7 @@ const AssignmentListModal = props => {
 	const [show, setShow] = React.useState();
 	return (
 		<div>
-				<Button label='Add A Assignment' onClick={() => setShow(true)} />
+				<Button label='Assign to Class' onClick={() => setShow(true)} />
 				{show && (
 					<Layer
 						onEsc={() => setShow(false)}
