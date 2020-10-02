@@ -70,27 +70,6 @@ const AssignmentList = props => {
 			)
 	}
 
-  useEffect(() => {
-    axios
-      // path to get all classrooms associated with assignment
-      .get(
-        "http://localhost:8000/api/classrooms-assignments/",
-        {
-          assignment: props.assignment.id,
-        },
-        authorizationHeader
-      )
-      .then(res => {
-        setClassrooms(res.data)
-        console.log("Here is the class data: ", res.data)
-      })
-      .catch(err =>
-        console.log(
-          err,
-          "You've hit an error in the axios call for assignments"
-        )
-      )
-  }, [props.token, props.currentUser])
 
 	return (
 		<>
