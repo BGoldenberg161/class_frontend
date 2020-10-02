@@ -21,11 +21,11 @@ const FooterBar = props => {
 				}}
 			>
 				<Footer>
-					<FormNext color='black' />
+					<FormNext color='#6FFFB0' />
 					<Text alignSelf='center' weight='bold'>
-						c<span style={{ color: 'green' }}>ℓ</span>ass
+						c<span style={{ color: '#6FFFB0' }}>ℓ</span>ass
 					</Text>
-					<Text textAlign='center' size='small' color='green'>
+					<Text textAlign='center' size='small'>
 						© 2020
 					</Text>
 				</Footer>

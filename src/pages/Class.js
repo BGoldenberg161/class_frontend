@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
-import ClassCard from '../components/ClassCard';
+import ClassCard from '../components/Classes/ClassCard';
 import { Box, ResponsiveContext, Grid } from 'grommet';
-import AddClassModal from '../components/AddClassModal';
+import AddClassModal from '../components/Classes/AddClassModal';
 import axios from 'axios'
 
 const Class = props => {

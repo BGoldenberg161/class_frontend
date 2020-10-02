@@ -6,7 +6,7 @@ const Home = props => {
 	return (
 		<div>
 			<Main pad='large' align='center' justify='center'>
-				<Heading>Welcome, to c<span style={{color: 'green'}}>ℓ</span>ass</Heading>
+				<Heading>Welcome, to c<span style={{color: '#6FFFB0'}}>ℓ</span>ass</Heading>
 				<Box
 					responsive={true}
 					elevation='large'

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import VideoPlayer from '../components/VideoPlayer';
+import VideoPlayer from '../components/Utils/VideoPlayer';
 import {
 	Anchor,
 	Avatar,
@@ -10,7 +10,6 @@ import {
 	Box,
 	Heading,
 	Paragraph,
-	Grid,
 	ResponsiveContext,
 } from 'grommet';
 import { Linkedin, Github, Transaction } from 'grommet-icons';
@@ -25,7 +24,7 @@ const About = props => {
 		<div>
 			<Box pad='medium' align='center' justify='center'>
 				<Heading level='3' margin={{ vertical: 'medium' }}>
-					About c<span style={{ color: 'green' }}>ℓ</span>ass
+					About c<span style={{ color: '#6FFFB0' }}>ℓ</span>ass
 				</Heading>
 				<Paragraph align='center' margin={{ top: 'none' }}>
 					A full stack application with both teachers and students in mind, a
@@ -40,7 +39,7 @@ const About = props => {
 			</Box>
 			<Box pad='medium' align='center' justify='center'>
 				<Heading level='3' margin={{ vertical: 'medium' }}>
-					Meet the D<span style={{ color: 'green' }}>e</span>vs
+					Meet the D<span style={{ color: '#6FFFB0' }}>e</span>vs
 				</Heading>
 			</Box>
 			<Box
@@ -50,8 +49,8 @@ const About = props => {
 				justify='center'
 				gap='small'
 			>
-				<Grid
-					direction='rows'
+				<Box
+					direction={ size !== 'small' ? 'row' : 'column'}
 					columns={size !== 'small' ? 'small' : '100%'}
 					gap='small'
 				>
@@ -69,7 +68,7 @@ const About = props => {
 								icon={<Linkedin color='#2867B2' />}
 								hoverIndicator
 							/>
-							<Transaction />
+							<Transaction color='#6FFFB0' />
 							<Anchor
 								href='https://github.com/yoel0'
 								target='_blank'
@@ -92,7 +91,7 @@ const About = props => {
 								icon={<Linkedin color='#2867B2' />}
 								hoverIndicator
 							/>
-							<Transaction />
+							<Transaction color='#6FFFB0' />
 							<Anchor
 								href='https://github.com/BGoldenberg161'
 								target='_blank'
@@ -115,7 +114,7 @@ const About = props => {
 								icon={<Linkedin color='#2867B2' />}
 								hoverIndicator
 							/>
-							<Transaction />
+							<Transaction color='#6FFFB0' />
 							<Anchor
 								href='https://github.com/chamon562'
 								target='_blank'
@@ -138,7 +137,7 @@ const About = props => {
 								icon={<Linkedin color='#2867B2' />}
 								hoverIndicator
 							/>
-							<Transaction />
+							<Transaction color='#6FFFB0' />
 							<Anchor
 								href='https://github.com/kinawy'
 								target='_blank'
@@ -147,11 +146,11 @@ const About = props => {
 							/>
 						</CardFooter>
 					</Card>
-				</Grid>
+				</Box>
 			</Box>
 			<Box pad='medium' align='center' justify='center'>
 				<Heading level='3' margin={{ vertical: 'medium' }}>
-					Watch the J<span style={{ color: 'green' }}>o</span>urney
+					Watch the J<span style={{ color: '#6FFFB0' }}>o</span>urney
 				</Heading>
 				<VideoPlayer />
 			</Box>

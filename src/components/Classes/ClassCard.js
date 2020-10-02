@@ -12,7 +12,7 @@ import {
 	Paragraph,
 	Text,
 } from 'grommet';
-import { FormUp, FormDown, Favorite } from 'grommet-icons';
+import { FormUp, FormDown, Trash } from 'grommet-icons';
 
 const ClassCard = props => {
 	const [open, setOpen] = React.useState(false);
@@ -48,7 +48,7 @@ const ClassCard = props => {
 				<CardFooter>
 					<Box direction='row' align='center' gap='small'>
 						<Button
-							icon={<Favorite color={favorite ? 'red' : undefined} />}
+							icon={<Trash color={favorite ? 'red' : undefined} />}
 							hoverIndicator
 							onClick={() => {
 								setFavorite(!favorite);

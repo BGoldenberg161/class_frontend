@@ -9,7 +9,7 @@ import Assignment from './pages/Assignment';
 import Grade from './pages/Grade';
 import Class from './pages/Class';
 import FourOhFour from './pages/FourOhFour';
-import Layout from './components/Layout';
+import Layout from './components/Partials/Layout';
 import jwtDecode from 'jwt-decode'
 import { Grommet } from 'grommet';
 import { CaretDown } from 'grommet-icons';
@@ -21,11 +21,8 @@ const authTokenPath = process.env.REACT_STORAGE_TOKEN
 const theme = {
 	global: {
 		colors: {
-			brand: '#EDA306',
+			brand: '#0a64a0',
 		},
-		
-	  dark: 'dark',
-		light: 'light',
 		elevation: {
 			light: {
 				xsmall: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
