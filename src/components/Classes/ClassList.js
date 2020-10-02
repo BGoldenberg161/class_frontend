@@ -45,22 +45,22 @@ const ClassList = props => {
 		headers: {'Authorization': `Bearer ${props.token}`}
 	}
 	
+	const fetchData = async () => {
+		const getAssignedStudents = await axios(
+		  `http://localhost:8000/api/students-classrooms/${props.classroom.id}`,
+		  authorizationHeader
+		  )
+		const getClassroomsStudents = await axios(
+		  `http://localhost:8000/api/student/`,
+		  authorizationHeader
+		  )
+		setStudents(getClassroomsStudents.data)
+		console.log(students)
+		setAssignedStudents(getAssignedStudents.data)
+		console.log('ℌ Assigned Students: ', assignedStudents)
+	}
+
 	useEffect(() => {
-		
-		const fetchData = async () => {
-			const getAssignedStudents = await axios(
-			  `http://localhost:8000/api/view-classrooms-students/${props.classroom.id}`,
-			  authorizationHeader
-			  )
-			const getClassroomsStudents = await axios(
-			  `http://localhost:8000/api/students/`,
-			  authorizationHeader
-			  )
-			setStudents(getClassroomsStudents.data)
-			console.log(getClassroomsStudents.data)
-			setAssignedStudents(getAssignedStudents.data)
-			console.log('ℌ Assigned Students: ', getAssignedStudents.data)
-		}
 		fetchData()
 	}, [props.token, props.currentUser])
 
