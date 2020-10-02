@@ -15,19 +15,6 @@ import DeleteIcon from "@material-ui/icons/Delete"
 import axios from "axios"
 
 const useStyles = makeStyles(theme => ({
-<<<<<<< HEAD
-  root: {
-    flexGrow: 1,
-    maxWidth: 752,
-  },
-  demo: {
-    backgroundColor: theme.palette.background.paper,
-  },
-  title: {
-    margin: theme.spacing(4, 0, 2),
-  },
-}))
-=======
 	root: {
 		flexGrow: 1,
 		maxWidth: 752,
@@ -46,7 +33,6 @@ const useStyles = makeStyles(theme => ({
 	},
 }));
 
->>>>>>> 288d345f5b0412d018bbc6a4acb2c9d37d400728
 
 const AssignmentList = props => {
 	const classes = useStyles();
