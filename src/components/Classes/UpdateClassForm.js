@@ -5,8 +5,8 @@ import axios from 'axios'
 
 const UpdateClassForm = props => {
 	
-	const [className, setClassName] = useState(props.class.name)
-	const [gradeLevel, setGradeLevel] = useState(props.class.gradeLevel)
+	const [className, setClassName] = useState(props.classroom.name)
+	const [gradeLevel, setGradeLevel] = useState(props.classroom.gradeLevel)
 
 	const authorizationHeader = {
 		headers: {'Authorization': `Bearer ${props.token}`}
@@ -16,7 +16,7 @@ const UpdateClassForm = props => {
 		e.preventDefault()
 		console.log(props)
 		axios
-			.put(`http://localhost:8000/api/classroom/${props.classId}/`, {
+			.put(`http://localhost:8000/api/classroom/${props.classroom.id}/`, {
 				name: className,
 				gradeLevel: gradeLevel
 			}, 

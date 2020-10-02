@@ -1,5 +1,6 @@
 import React from 'react';
 import UpdateClassModal from './UpdateClassModal';
+import ClassListModal from './ClassListModal';
 import {
 	Box,
 	Button,
@@ -17,7 +18,7 @@ import { FormUp, FormDown, Trash } from 'grommet-icons';
 const ClassCard = props => {
 	const [open, setOpen] = React.useState(false);
 	const [favorite, setFavorite] = React.useState(false);
-
+	
 	const ExpandButton = ({ ...rest }) => {
 		const Icon = open ? FormUp : FormDown;
 		return (
@@ -40,10 +41,10 @@ const ClassCard = props => {
 				</CardBody>
 				<Box pad={{ horizontal: 'medium' }} responsive={false}>
 					<Heading level='3' margin={{ vertical: 'medium' }}>
-						{props.class.name}
+						{props.classroom.name}
 					</Heading>
-					<Paragraph margin={{ top: 'none' }}>Grade Level: {props.class.gradeLevel}</Paragraph>
-					<Paragraph margin={{ top: 'none' }}>Teacher Id: {props.class.teacher}</Paragraph>
+					<Paragraph margin={{ top: 'none' }}>Grade Level: {props.classroom.gradeLevel}</Paragraph>
+					<Paragraph margin={{ top: 'none' }}>Teacher Id: {props.classroom.teacher}</Paragraph>
 				</Box>
 				<CardFooter>
 					<Box direction='row' align='center' gap='small'>
@@ -55,10 +56,18 @@ const ClassCard = props => {
 							}}
 						/>
 					</Box>
-					<UpdateClassModal {...props} class={props.class} classId={props.class.id} currentUser={props.currentUser} token={props.token} fetchClasses={props.fetchClasses}/>
-					<Text size='medium' color='brand'>
-						Class Desc.
-					</Text>
+					<UpdateClassModal
+						{...props}
+						classroom={props.classroom}
+						currentUser={props.currentUser}
+						token={props.token}
+						fetchClasses={props.fetchClasses}/>
+					<ClassListModal 
+						{...props}
+						currentUser={props.currentUser}
+						token={props.token}
+						classroom={props.classroom}
+					/>
 					<ExpandButton onClick={() => setOpen(!open)} hoverIndicator />
 				</CardFooter>
 				<Collapsible open={open}>
