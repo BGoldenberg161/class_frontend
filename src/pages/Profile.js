@@ -4,10 +4,11 @@ import ProLayout from '../components/ProLayout'
 
 
 const Profile = props => {
+
   // making state for user 9:34am, thursday, 10/01/2020
   const [user, setUser] = useState("")
   const authorizationHeader = {
-    headers: {'Authorization': `Bearer ${props.token}`}
+    headers: { 'Authorization': `Bearer ${props.token}` }
   }
   console.log(props)
   useEffect(() => {
@@ -24,9 +25,8 @@ const Profile = props => {
 
   return (
     <div >
-      
-    <ProLayout user={user}/>
-    
+      <ProLayout user={user} />
+
     </div>
   )
 }
