@@ -53,7 +53,7 @@ const Class = props => {
 							return (
 								<Grid columns={['auto']}>
 									{classes.map((c, i) => {
-										return <ClassCard key={i} class={c} {...props} currentUser={props.currentUser} token={props.token} fetchClasses={fetchClasses} />
+										return <ClassCard key={i} classroom={c} {...props} currentUser={props.currentUser} token={props.token} fetchClasses={fetchClasses} />
 									})}
 								</Grid>
 							);
@@ -61,7 +61,7 @@ const Class = props => {
 							return (
 								<Grid columns={['auto', 'auto']}>
 									{classes.map((c, i) => {
-										return <ClassCard key={i} class={c} {...props} currentUser={props.currentUser} token={props.token} fetchClasses={fetchClasses} />
+										return <ClassCard key={i} classroom={c} {...props} currentUser={props.currentUser} token={props.token} fetchClasses={fetchClasses} />
 									})}
 								</Grid>
 							);
@@ -69,7 +69,7 @@ const Class = props => {
 							return (
 								<Grid columns={['auto', 'auto', 'auto']}>
 									{classes.map((c, i) => {
-										return <ClassCard key={i} class={c} {...props} currentUser={props.currentUser} token={props.token} fetchClasses={fetchClasses} />
+										return <ClassCard key={i} classroom={c} {...props} currentUser={props.currentUser} token={props.token} fetchClasses={fetchClasses} />
 									})}
 								</Grid>
 							);

@@ -46,7 +46,6 @@ const AssignmentList = props => {
 	}
 
 	useEffect(() => {
-		
 		const fetchData = async () => {
 			const getAssignedClasses = await axios(
 			  `http://localhost:8000/api/view-classrooms-assignments/${props.assignment.id}`,
@@ -57,17 +56,29 @@ const AssignmentList = props => {
 			  authorizationHeader
 			  )
 			setClassrooms(getTeachersClasses.data)
-			console.log(classrooms)
-			console.log(getTeachersClasses.data)
 			setAssignedClassrooms(getAssignedClasses.data)
-			console.log(assignedClassrooms)
-			console.log(getAssignedClasses.data)
 		}
 		fetchData()
 	}, [props.token, props.currentUser])
 
+	const fetchData = async () => {
+		const getAssignedClasses = await axios.get(
+		  `http://localhost:8000/api/view-classrooms-assignments/${props.assignment.id}`,
+		  authorizationHeader
+		  )
+		const getTeachersClasses = await axios.get(
+		  `http://localhost:8000/api/classrooms/`,
+		  authorizationHeader
+		  )
+		setClassrooms(getTeachersClasses.data)
+		console.log(getTeachersClasses.data)
+		setAssignedClassrooms(getAssignedClasses.data)
+		console.log(getAssignedClasses.data)
+	}
+
 	const addToClass = (id) => {
 		console.log(id)
+		console.log(props.assignment.id)
 		axios
 			.post('http://localhost:8000/api/create-classrooms-assignments/', {
 				classroom: id,
@@ -75,6 +86,7 @@ const AssignmentList = props => {
 			},
 			authorizationHeader
 			)
+		fetchData()
 	}
 
 
