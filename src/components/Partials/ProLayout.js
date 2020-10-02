@@ -3,7 +3,7 @@ import axios from "axios"
 import { Accordion, AccordionPanel, Button, Box, Grid, Meter, Stack, Text, Heading } from "grommet";
 import { Toast } from "grommet-icons";
 import { Link } from 'react-router-dom'
-import Cloudinary from './Cloudinary'
+import Cloudinary from '../Cloudinary/Cloudinary'
 
 // import DjangoCSRFToken from "django-react-csrftoken"
 
