@@ -1,5 +1,6 @@
 import React from 'react';
 import { Video, Box } from 'grommet';
+import Promo from '../../assets/Video/classVideo.mp4'
 
 const VideoPlayer = props => {
 	return (
@@ -8,7 +9,7 @@ const VideoPlayer = props => {
 				<Video controls='over' preLoad>
 					<source
 						key='video'
-						src='https://v2.grommet.io/assets/small.mp4'
+						src={Promo}
 						type='video/mp4'
 					/>
 					<track
