@@ -1,6 +1,7 @@
 import React from 'react';
 import UpdateClassModal from './UpdateClassModal';
 import ClassListModal from './ClassListModal';
+import StudentListModal from './StudentListModal';
 import {
 	Box,
 	Button,
@@ -46,6 +47,7 @@ const ClassCard = props => {
 					<Paragraph margin={{ top: 'none' }}>Grade Level: {props.classroom.gradeLevel}</Paragraph>
 					<Paragraph margin={{ top: 'none' }}>Teacher Id: {props.classroom.teacher}</Paragraph>
 				</Box>
+				{props.user.is_teacher ? 
 				<CardFooter>
 					<Box direction='row' align='center' gap='small'>
 						<Button
@@ -66,10 +68,26 @@ const ClassCard = props => {
 						{...props}
 						currentUser={props.currentUser}
 						token={props.token}
-						classroom={props.classroom}
-					/>
+						classroom={props.classroom}/>
 					<ExpandButton onClick={() => setOpen(!open)} hoverIndicator />
-				</CardFooter>
+				</CardFooter> : 
+				<CardFooter>
+				<Box direction='row' align='center' gap='small'>
+					<Button
+						icon={<Trash color={favorite ? 'red' : undefined} />}
+						hoverIndicator
+						onClick={() => {
+							setFavorite(!favorite);
+						}}
+					/>
+				</Box>
+				<StudentListModal 
+					{...props}
+					currentUser={props.currentUser}
+					token={props.token}
+					classroom={props.classroom}/>
+				<ExpandButton onClick={() => setOpen(!open)} hoverIndicator />
+			</CardFooter>}
 				<Collapsible open={open}>
 					<Paragraph margin='medium' color='dark-3'>
 						English and Language Arts high school classes provide an important

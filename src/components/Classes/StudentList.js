@@ -36,45 +36,24 @@ const useStyles = makeStyles(theme => ({
 
 const ClassList = props => {
 	const classes = useStyles();
-	const [dense, setDense] = useState(false);
-	const [secondary, setSecondary] = useState(false);
-	const [students, setStudents] = useState([])
-	const [assignedStudents, setAssignedStudents] = useState([])
+    const [dense, setDense] = useState(false);
+    const [assignments, setAssignments] = useState([])
 	
-	const authorizationHeader = {
+    const authorizationHeader = {
 		headers: {'Authorization': `Bearer ${props.token}`}
-	}
-	
-	const fetchData = async () => {
-		const getAssignedStudents = await axios.get(
-		  `http://localhost:8000/api/students-classrooms/${props.classroom.id}`,
-		  authorizationHeader
-		  )
-		const getClassroomsStudents = await axios.get(
-		  `http://localhost:8000/api/student/`,
-		  authorizationHeader
-		  )
-		setStudents(getClassroomsStudents.data)
-		console.log(students)
-		setAssignedStudents(getAssignedStudents.data)
-		console.log('ℌ Assigned Students: ', assignedStudents)
 	}
 
 	useEffect(() => {
-		fetchData()
-	}, [props.token, props.currentUser])
-
-	const addToClass = (id) => {
-		console.log(id)
-		axios
-			.post('http://localhost:8000/api/students-classrooms/', {
-				student: id,
-				classroom: props.classroom.id
-			},
-			authorizationHeader
-			)
-		fetchData()
-	}
+        // put in classroom ID get out assignments
+            axios.get(`http://localhost:8000/api/view-classrooms-assignments/${props.classroom.id}`, authorizationHeader)
+            .then(res => {
+                console.log('Here is the assignment data: ', res.data)
+                setAssignments(res.data)
+              })
+              .catch(err =>
+                console.log(err, "You've hit an error in the axios call for assignments")
+              )
+          }, [props.token, props.currentUser])
 
 
 	return (
@@ -82,11 +61,11 @@ const ClassList = props => {
 			<Grid container spacing={2} className={classes.root} alignItems='center' alignContent='center' style={{padding: '3vh 3vw'}}>
 				<Grid item className={classes.gridItem} xs={12}>
 					<Typography variant='h6' className={classes.title}>
-						Students in Class
+						Class Assignments
 					</Typography>
 					<div className={classes.demo}>
 						<List dense={dense}>
-							{assignedStudents.map((student, i) => {
+							{assignments.map((assignment, i) => {
 								return(<ListItem key={i}>
 											<ListItemAvatar>
 												<Avatar>
@@ -94,8 +73,8 @@ const ClassList = props => {
 												</Avatar>
 											</ListItemAvatar>
 											<ListItemText
-												primary={student.user.first_name}
-												secondary={student.user.last_name}
+												primary={assignment.name}
+												// secondary={student.user.last_name}
 											/>
 											<ListItemSecondaryAction>
 												<IconButton edge='end' aria-label='delete'>
@@ -103,33 +82,6 @@ const ClassList = props => {
 												</IconButton>
 											</ListItemSecondaryAction>
 										</ListItem>)
-							})}
-						</List>
-					</div>
-				</Grid>
-				<Grid item className={classes.gridItem} xs={12}>
-					<Typography variant='h6' className={classes.title}>
-						Add Another Student
-					</Typography>
-					<div className={classes.demo}>
-						<List dense={dense}>
-						{students.map((student, i) => {
-							return(<ListItem key={i}>
-										<ListItemAvatar>
-											<Avatar>
-												<Class />
-											</Avatar>
-										</ListItemAvatar>
-										<ListItemText
-											primary={student.user.first_name}
-											secondary={student.user.last_name}
-										/>
-										<ListItemSecondaryAction>
-											<IconButton edge='end' aria-label='add' onClick={(e) => addToClass(student.id)}>
-												<Add />
-											</IconButton>
-										</ListItemSecondaryAction>
-									</ListItem>)
 							})}
 						</List>
 					</div>

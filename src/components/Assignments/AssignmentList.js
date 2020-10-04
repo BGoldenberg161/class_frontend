@@ -89,7 +89,6 @@ const AssignmentList = props => {
 		fetchData()
 	}
 
-
 	return (
 		<>
 			<Grid container spacing={2} className={classes.root} alignItems='center' alignContent='center' style={{padding: '3vh 3vw'}}>

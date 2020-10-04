@@ -4,39 +4,31 @@ import { Main, Box, Button, Form, FormField, TextInput, Select } from 'grommet';
 import { View, Hide, MailOption, ContactInfo, Sign } from 'grommet-icons';
 import { Redirect } from 'react-router-dom'
 
-const SignupForm = props => {
+const ProfileForm = props => {
 	const [password, setPassword] = useState('');
 	const [reveal, setReveal] = useState(false);
-	const [passwordTwo, setPasswordTwo] = useState('');
-	const [firstName, setFirstName] = useState('');
-	const [lastName, setLastName] = useState('');
-	const [email, setEmail] = useState('');
-	const [username, setUsername] = useState('');
-	const [isTeacher, setIsTeacher] = useState(false);
-	const [mismatchPassword, setMismatchPassword] = useState(false);
-	// handle mismatch password modal
-	const [successfulRegister, setSuccessfulRegister] = useState(false)
+	const [firstName, setFirstName] = useState(props.user.first_name);
+	const [lastName, setLastName] = useState(props.user.last_name);
+	const [email, setEmail] = useState(props.user.email);
+	const [username, setUsername] = useState(props.user.username);
+	// const [successfulRegister, setSuccessfulRegister] = useState(false)
 
 
 	const handleSubmit = e => {
 		e.preventDefault();
-		if (password !== passwordTwo) {
-			setMismatchPassword(true);
-			return;
-		}
-		axios
-			.post('http://localhost:8000/signup/', {
+        axios
+            // hit put route for user update
+			.post(`http://localhost:8000/api/user/${props.user.id}/`, {
 				username: username,
 				password: password,
 				first_name: firstName,
 				last_name: lastName,
-				is_teacher: isTeacher,
 				email: email,
 			})
 			.then(res => {
 				console.log(res)
 				console.log(res.data)
-				setSuccessfulRegister(true)
+				// setSuccessfulRegister(true)
 			})
 			.catch(err =>
 				console.log(err, "You've hit an error in the axios call for users")
@@ -46,15 +38,13 @@ const SignupForm = props => {
 
 	return (
 		<div>
-			{successfulRegister ? <Redirect to={{pathname: `/login/`}} /> : ''}
+			{/* {successfulRegister ? <Redirect to={{pathname: `/login/`}} /> : ''} */}
 			<Main pad='large' align='center' justify='center'>
 				<Box fill align='center' justify='center' pad='large'>
 					<Box width='medium'>
 						<Form
-							// onChange={value => console.log("onChange", value)}
 							onSubmit={e => {
 								handleSubmit(e);
-								// console.log("onSubmit", event.value, event.touched)
 							}}
 						>
 							<FormField
@@ -119,36 +109,6 @@ const SignupForm = props => {
 									/>
 								</Box>
 							</FormField>
-							<FormField
-								label='Confirm Password'
-								name='password2'
-								type='password'
-								value={passwordTwo}
-							>
-								<Box direction='row' justify='end'>
-									<TextInput
-										plain
-										type={reveal ? 'text' : 'password'}
-										value={passwordTwo}
-										onChange={e => setPasswordTwo(e.target.value)}
-										required
-									/>
-									<Button
-										icon={
-											reveal ? <View size='medium' /> : <Hide size='medium' />
-										}
-										onClick={() => setReveal(!reveal)}
-									/>
-								</Box>
-							</FormField>
-							<FormField
-								label='Are you a Teacher?'
-								name='is_teacher'
-								component={Select}
-								value={isTeacher ? 'Yes' : 'No'}
-								onChange={e => setIsTeacher(e.option === 'Yes' ? true : false)}
-								options={['Yes', 'No']}
-							/>
 							<Box direction='row' justify='center' margin={{ top: 'large' }}>
 								<Button type='submit' label='Submit' primary />
 							</Box>
@@ -160,4 +120,4 @@ const SignupForm = props => {
 	);
 };
 
-export default SignupForm;
+export default ProfileForm;

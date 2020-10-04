@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios"
 import ProLayout from '../components/Partials/ProLayout'
+import ProfileBox from '../components/Profile/ProfileBox'
 
 const Profile = props => {
 
@@ -16,6 +17,7 @@ const Profile = props => {
       .then(res => {
         console.log('Here is the user data ya bitch: ', res.data)
         setUser(res.data)
+        props.updateUserData(res.data)
       })
       .catch(err =>
         console.log(err, "You've hit an error in the axios call for user")
@@ -24,8 +26,8 @@ const Profile = props => {
 
   return (
     <div >
-      <ProLayout user={user} />
-
+      {/* <ProLayout user={user} /> */}
+      <ProfileBox user={user} />
     </div>
   )
 }

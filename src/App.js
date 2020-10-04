@@ -85,8 +85,9 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [token, setToken] = useState('')
   const [currentUser, setCurrentUser] = useState({})
+  const [user, setUser] = useState({})
 
-
+  const updateUserData = e => {setUser(e)}
 
   useEffect(() => {
     if (localStorage.getItem(authTokenPath) && token === ''){
@@ -111,10 +112,10 @@ function App() {
 					<Route path='/about' component={About} />
 					<Route path='/signup' component={Signup} />
 					<Route path='/login' render={(props) => <Login {...props} setToken={setToken} /> } />
-					<Route path='/profile' render={(props) => <Profile {...props} currentUser={currentUser} token={token} /> } />
-					<Route path='/assignment' render={(props) => <Assignment {...props} currentUser={currentUser} token={token} /> } />
+					<Route path='/profile' render={(props) => <Profile {...props} currentUser={currentUser} token={token} updateUserData={updateUserData} /> } />
+					<Route path='/assignment' render={(props) => <Assignment {...props} user={user} currentUser={currentUser} token={token} /> } />
 					<Route path='/grade' component={Grade} />
-					<Route path='/class' render={(props) => <Class {...props} currentUser={currentUser} token={token} /> } />
+					<Route path='/class' render={(props) => <Class {...props} user={user} currentUser={currentUser} token={token} /> } />
 					<Route exact path='/' component={Home} />
 					<Route path='*' component={FourOhFour} />
 				</Switch>

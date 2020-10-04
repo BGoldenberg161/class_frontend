@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import ClassList from './ClassList';
-import { Box, Button, Layer } from 'grommet';
+import { Anchor, Button, Layer } from 'grommet';
 
 const ClassListModal = props => {
 	const [show, setShow] = useState();
 	return (
 		<div>
-				<Button label='Add Students' onClick={() => setShow(true)} />
+                <Anchor  label='Add Students' onClick={() => setShow(true)} />
 				{show && (
 					<Layer
 						onEsc={() => setShow(false)}
