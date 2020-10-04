@@ -12,7 +12,7 @@ const ProfileModal = props => {
 					onEsc={() => setShow(false)}
 					onClickOutside={() => setShow(false)}
 				>
-					<ProfileForm {...props} user={props.user} currentUser={props.currentUser} token={props.token}/>
+					<ProfileForm {...props} renderProfile={props.renderProfile} user={props.user} currentUser={props.currentUser} token={props.token}/>
 					<Button label='close' onClick={() => setShow(false)} />
 				</Layer>
 			)}
