@@ -21,7 +21,7 @@ const ProfileBox = props => {
                 Email <FormNext color='#6FFFB0' /> {props.user.email}
             </Box>
             <Box>
-                <ProfileModal {...props} user={props.user} currentUser={props.currentUser} token={props.token}/>
+                <ProfileModal {...props} renderProfile={props.renderProfile} user={props.user} currentUser={props.currentUser} token={props.token}/>
             </Box>
 
         </Box>

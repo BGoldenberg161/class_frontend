@@ -11,7 +11,8 @@ const Profile = props => {
     headers: { 'Authorization': `Bearer ${props.token}` }
   }
   console.log(props)
-  useEffect(() => {
+
+  const renderProfile = () => {
     axios
       .get(`http://localhost:8000/api/user/${props.currentUser.user_id}`, authorizationHeader)
       .then(res => {
@@ -22,12 +23,16 @@ const Profile = props => {
       .catch(err =>
         console.log(err, "You've hit an error in the axios call for user")
       )
+  }
+
+  useEffect(() => {
+    renderProfile()
   }, [props.token, props.currentUser])
 
   return (
     <div >
       {/* <ProLayout user={user} /> */}
-      <ProfileBox user={user} />
+      <ProfileBox {...props} renderProfile={renderProfile} user={user} currentUser={props.currentUser} token={props.token}/>
     </div>
   )
 }

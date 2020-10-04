@@ -13,22 +13,25 @@ const ProfileForm = props => {
 	const [username, setUsername] = useState(props.user.username);
 	// const [successfulRegister, setSuccessfulRegister] = useState(false)
 
-
+    const authorizationHeader = {
+		headers: {'Authorization': `Bearer ${props.token}`}
+    }
+    
 	const handleSubmit = e => {
 		e.preventDefault();
         axios
             // hit put route for user update
-			.post(`http://localhost:8000/api/user/${props.user.id}/`, {
+			.put(`http://localhost:8000/api/user/${props.user.id}/`, {
 				username: username,
 				password: password,
 				first_name: firstName,
 				last_name: lastName,
 				email: email,
-			})
+			}, authorizationHeader)
 			.then(res => {
 				console.log(res)
 				console.log(res.data)
-				// setSuccessfulRegister(true)
+				props.renderProfile()
 			})
 			.catch(err =>
 				console.log(err, "You've hit an error in the axios call for users")

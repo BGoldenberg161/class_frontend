@@ -45,7 +45,7 @@ const ClassList = props => {
 
 	useEffect(() => {
         // put in classroom ID get out assignments
-            axios.get(`http://localhost:8000/api/view-classrooms-assignments/${props.classroom.id}`, authorizationHeader)
+            axios.get(`http://localhost:8000/api/classrooms-assignments-modal/${props.classroom.id}/`, authorizationHeader)
             .then(res => {
                 console.log('Here is the assignment data: ', res.data)
                 setAssignments(res.data)
