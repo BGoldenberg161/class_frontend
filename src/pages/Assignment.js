@@ -5,7 +5,7 @@ import { Box, ResponsiveContext, Grid } from 'grommet';
 import axios from 'axios'
 
 const Assignment = props => {
-
+	console.log('😳', props.user)
 	const [assignments, setAssignments] = useState([])
 
 	const authorizationHeader = {
@@ -37,7 +37,7 @@ const Assignment = props => {
 	  }, [props.token, props.currentUser])
 
 	return (
-		<>
+		<> 
 			<Box direction='row' justify='center' margin={{ top: 'large' }}>
 				<AddAssignmentModal {...props} currentUser={props.currentUser} token={props.token} fetchAssignments={fetchAssignments}/>
 			</Box>
@@ -46,25 +46,28 @@ const Assignment = props => {
 					if (size === 'small') {
 						return (
 							<Grid columns={['auto']}>
-								{assignments.map((a, i) => {
+								{props.user.is_teacher ? 
+								assignments.map((a, i) => {
 										return <AssignmentCard key={i} assignment={a} currentUser={props.currentUser} token={props.token} fetchAssignments={fetchAssignments}/>
-									})}
+									}) : <h1>You can see your assignments via the classes tab</h1>}
 							</Grid>
 						);
 					} else if (size === 'medium') {
 						return (
 							<Grid columns={['auto', 'auto']}>
-								{assignments.map((a, i) => {
+								{props.user.is_teacher ? 
+								assignments.map((a, i) => {
 										return <AssignmentCard key={i} assignment={a} currentUser={props.currentUser} token={props.token} fetchAssignments={fetchAssignments}/>
-									})}
+									}) : <h1>You can see your assignments via the classes tab</h1>}
 							</Grid>
 						);
 					} else {
 						return (
 							<Grid columns={['auto', 'auto', 'auto']}>
-								{assignments.map((a, i) => {
+								{props.user.is_teacher ? 
+								assignments.map((a, i) => {
 										return <AssignmentCard key={i} assignment={a} currentUser={props.currentUser} token={props.token} fetchAssignments={fetchAssignments}/>
-									})}
+									}) : <h1>As a student, you can see your assignments via the classes tab.</h1>}
 							</Grid>
 						);
 					}
