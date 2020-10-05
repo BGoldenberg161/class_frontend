@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import UpdateAssignmentModal from './UpdateAssignmentModal';
+import axios from 'axios'
 import {
 	Anchor,
 	Box,
@@ -16,8 +17,25 @@ import { FormUp, FormDown, Trash } from 'grommet-icons';
 import AssignmentListModal from './AssignmentListModal';
 
 const AssignmentCard = props => {
-	const [open, setOpen] = React.useState(false);
-	const [favorite, setFavorite] = React.useState(false);
+	const [open, setOpen] = useState(false);
+	const [favorite, setFavorite] = useState(false);
+
+	const authorizationHeader = {
+		headers: {'Authorization': `Bearer ${props.token}`}
+	}
+
+	const runDelete = (e) => {
+		e.preventDefault()
+		axios
+			.delete(`http://localhost:8000/api/assignment/${props.assignment.id}`, authorizationHeader)
+			.then(res => {
+				console.log('delete response', res)
+				props.fetchAssignments()
+			})
+			.catch(err => {
+				console.log('Your Delete error is dis: ', err)
+			})
+	}
 
 	const ExpandButton = ({ ...rest }) => {
 		const Icon = open ? FormUp : FormDown;
@@ -49,8 +67,9 @@ const AssignmentCard = props => {
 						<Button
 							icon={<Trash color={favorite ? 'red' : undefined} />}
 							hoverIndicator
-							onClick={() => {
+							onClick={(e) => {
 								setFavorite(!favorite);
+								runDelete(e)
 							}}
 						/>
 					</Box>

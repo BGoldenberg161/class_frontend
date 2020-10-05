@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import UpdateClassModal from './UpdateClassModal';
 import ClassListModal from './ClassListModal';
 import StudentListModal from './StudentListModal';
+import axios from 'axios'
 import {
 	Box,
 	Button,
@@ -17,9 +18,26 @@ import {
 import { FormUp, FormDown, Trash } from 'grommet-icons';
 
 const ClassCard = props => {
-	const [open, setOpen] = React.useState(false);
-	const [favorite, setFavorite] = React.useState(false);
+	const [open, setOpen] = useState(false);
+	const [favorite, setFavorite] = useState(false);
 	
+	const authorizationHeader = {
+		headers: {'Authorization': `Bearer ${props.token}`}
+	}
+
+	const runDelete = (e) => {
+		e.preventDefault()
+		axios
+			.delete(`http://localhost:8000/api/classroom/${props.classroom.id}`, authorizationHeader)
+			.then(res => {
+				console.log('delete response', res)
+				props.fetchClasses()
+			})
+			.catch(err => {
+				console.log('Your Delete error is dis: ', err)
+			})
+	}
+
 	const ExpandButton = ({ ...rest }) => {
 		const Icon = open ? FormUp : FormDown;
 		return (
@@ -30,6 +48,7 @@ const ClassCard = props => {
 			/>
 		);
 	};
+	
 	return (
 		<Box pad='medium' align='start'>
 			<Card elevation='large' width='medium'>
@@ -53,8 +72,9 @@ const ClassCard = props => {
 						<Button
 							icon={<Trash color={favorite ? 'red' : undefined} />}
 							hoverIndicator
-							onClick={() => {
+							onClick={(e) => {
 								setFavorite(!favorite);
+								runDelete(e)
 							}}
 						/>
 					</Box>
@@ -72,15 +92,20 @@ const ClassCard = props => {
 					<ExpandButton onClick={() => setOpen(!open)} hoverIndicator />
 				</CardFooter> : 
 				<CardFooter>
+				{props.user.is_teacher && (
+				<>
 				<Box direction='row' align='center' gap='small'>
 					<Button
 						icon={<Trash color={favorite ? 'red' : undefined} />}
 						hoverIndicator
-						onClick={() => {
-							setFavorite(!favorite);
+						onClick={(e) => {
+							setFavorite(!favorite)
+							runDelete(e)
 						}}
 					/>
 				</Box>
+				</>
+				)}
 				<StudentListModal 
 					{...props}
 					currentUser={props.currentUser}

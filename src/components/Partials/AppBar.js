@@ -66,7 +66,7 @@ const AppBar = props => {
 							icon={<User />}
 							hoverIndicator
 						/>
-						{props.is_teacher && (
+						{props.user.is_teacher && (
 							<>
 								<Anchor
 									as={Link}
