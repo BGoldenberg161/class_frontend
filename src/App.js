@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import axios from 'axios';
 import Home from './pages/Home';
 import About from './pages/About';
 import Signup from './pages/Signup';
@@ -89,25 +90,48 @@ function App() {
 
   const updateUserData = e => {setUser(e)}
 
-  useEffect(() => {
+  useEffect( () => {
     if (localStorage.getItem(authTokenPath) && token === ''){
       let decoded = jwtDecode(localStorage.getItem(authTokenPath))
       setIsLoggedIn(true)
       setToken(localStorage.getItem(authTokenPath))
       setCurrentUser(decoded)
-      console.log('♦️', currentUser)
     } else if (localStorage.getItem(authTokenPath) && token !== '') {
       setIsLoggedIn(true)
       setCurrentUser(jwtDecode(token))
-    }
+		}
+		if (user === {}){
+			const authorizationHeader = {
+				headers: { 'Authorization': `Bearer ${token}` }
+			}
+			axios
+      .get(`http://localhost:8000/api/user/${currentUser.user_id}`, authorizationHeader)
+      .then(res => {
+        setUser(res.data)
+      })
+      .catch(err =>
+        console.log(err, "You've hit an error in the axios call for user")
+      )
+		}
   }, [token])
 	
 	
+	const logoutFunction = () => {
+		if(localStorage.getItem(authTokenPath)){
+			console.log('this is happening')
+			localStorage.removeItem(authTokenPath)
+			setCurrentUser({})
+			setToken('')
+			setUser({})
+			setIsLoggedIn(false)
+		}
+	  return
+	};
   
 
 	return (
 		<Grommet theme={theme} full={true}>
-			<Layout>
+			<Layout user={user} isLoggedIn={isLoggedIn} logoutFunction={logoutFunction}>
 				<Switch>
 					<Route path='/about' component={About} />
 					<Route path='/signup' component={Signup} />

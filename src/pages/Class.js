@@ -1,53 +1,55 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import ClassCard from '../components/Classes/ClassCard';
 import { Box, ResponsiveContext, Grid } from 'grommet';
 import AddClassModal from '../components/Classes/AddClassModal';
-import axios from 'axios'
+import axios from 'axios';
 
 const Class = props => {
-
-	const [classes, setClasses] = useState([])
+	const [classes, setClasses] = useState([]);
 
 	const authorizationHeader = {
-		headers: {'Authorization': `Bearer ${props.token}`}
-	}
+		headers: { Authorization: `Bearer ${props.token}` },
+	};
 
 	const fetchClasses = () => {
 		axios
-		  .get('http://localhost:8000/api/classrooms/', authorizationHeader)
-		  .then(res => {
-			setClasses(res.data)
-			console.log('Here is the class data: ', res.data)
-		  })
-		  .catch(err =>
-			console.log(err, "You've hit an error in the axios call for classes")
-		  )
-	}
-	
+			.get('http://localhost:8000/api/classrooms/', authorizationHeader)
+			.then(res => {
+				setClasses(res.data);
+				console.log('Here is the class data: ', res.data);
+			})
+			.catch(err =>
+				console.log(err, "You've hit an error in the axios call for classes")
+			);
+	};
+
 	useEffect(() => {
-		console.log(props.token)
+		console.log(props.token);
 		axios
-		  .get('http://localhost:8000/api/classrooms/', authorizationHeader)
-		  .then(res => {
-			setClasses(res.data)
-			console.log('Here is the class data: ', res.data)
-		  })
-		  .catch(err =>
-			console.log(err, "You've hit an error in the axios call for classes")
-		  )
-	  }, [props.token, props.currentUser])
-
-	  
-
-	
-	
+			.get('http://localhost:8000/api/classrooms/', authorizationHeader)
+			.then(res => {
+				setClasses(res.data);
+				console.log('Here is the class data: ', res.data);
+			})
+			.catch(err =>
+				console.log(err, "You've hit an error in the axios call for classes")
+			);
+	}, [props.token, props.currentUser]);
 
 	return (
 		<>
-			<Box direction='row' justify='center' margin={{ top: 'large' }}>
-				<AddClassModal {...props} currentUser={props.currentUser} token={props.token} fetchClasses={fetchClasses}/>
-			</Box>
-
+			{props.user.is_teacher && (
+				<>
+					<Box direction='row' justify='center' margin={{ top: 'large' }}>
+						<AddClassModal
+							{...props}
+							currentUser={props.currentUser}
+							token={props.token}
+							fetchClasses={fetchClasses}
+						/>
+					</Box>
+				</>
+			)}
 			<Box direction='row' justify='center' margin={{ top: 'large' }}>
 				<ResponsiveContext>
 					{size => {
@@ -55,7 +57,16 @@ const Class = props => {
 							return (
 								<Grid columns={['auto']}>
 									{classes.map((c, i) => {
-										return <ClassCard key={i} classroom={c} {...props} currentUser={props.currentUser} token={props.token} fetchClasses={fetchClasses} />
+										return (
+											<ClassCard
+												key={i}
+												classroom={c}
+												{...props}
+												currentUser={props.currentUser}
+												token={props.token}
+												fetchClasses={fetchClasses}
+											/>
+										);
 									})}
 								</Grid>
 							);
@@ -63,7 +74,16 @@ const Class = props => {
 							return (
 								<Grid columns={['auto', 'auto']}>
 									{classes.map((c, i) => {
-										return <ClassCard key={i} classroom={c} {...props} currentUser={props.currentUser} token={props.token} fetchClasses={fetchClasses} />
+										return (
+											<ClassCard
+												key={i}
+												classroom={c}
+												{...props}
+												currentUser={props.currentUser}
+												token={props.token}
+												fetchClasses={fetchClasses}
+											/>
+										);
 									})}
 								</Grid>
 							);
@@ -71,7 +91,16 @@ const Class = props => {
 							return (
 								<Grid columns={['auto', 'auto', 'auto']}>
 									{classes.map((c, i) => {
-										return <ClassCard key={i} classroom={c} {...props} currentUser={props.currentUser} token={props.token} fetchClasses={fetchClasses} />
+										return (
+											<ClassCard
+												key={i}
+												classroom={c}
+												{...props}
+												currentUser={props.currentUser}
+												token={props.token}
+												fetchClasses={fetchClasses}
+											/>
+										);
 									})}
 								</Grid>
 							);

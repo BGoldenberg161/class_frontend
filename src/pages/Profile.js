@@ -10,7 +10,7 @@ const Profile = props => {
   const authorizationHeader = {
     headers: { 'Authorization': `Bearer ${props.token}` }
   }
-  console.log(props)
+  console.log('🧚🏻‍♀️', props.currentUser)
 
   const renderProfile = () => {
     axios
