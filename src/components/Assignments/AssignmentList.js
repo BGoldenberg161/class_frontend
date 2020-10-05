@@ -86,7 +86,13 @@ const AssignmentList = props => {
 			},
 			authorizationHeader
 			)
-		fetchData()
+			.then(res => {
+				console.log(res)
+				fetchData()
+			})
+			.catch(err => {
+				console.log('Error while adding to class: ', err)
+			})
 	}
 
 	return (
