@@ -10,8 +10,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Class from '@material-ui/icons/Class';
-import Add from '@material-ui/icons/Add';
-import DeleteIcon from '@material-ui/icons/Delete';
+import ExitToApp from '@material-ui/icons/ExitToApp';
 import axios from 'axios'
 
 const useStyles = makeStyles(theme => ({
@@ -77,8 +76,8 @@ const ClassList = props => {
 												// secondary={student.user.last_name}
 											/>
 											<ListItemSecondaryAction>
-												<IconButton edge='end' aria-label='delete'>
-													<DeleteIcon />
+												<IconButton edge='end' aria-label='link' href={assignment.url} target="_blank">
+													<ExitToApp />
 												</IconButton>
 											</ListItemSecondaryAction>
 										</ListItem>)
