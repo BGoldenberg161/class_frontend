@@ -5,15 +5,11 @@ import FooterBar from './FooterBar';
 require('dotenv').config()
 const authTokenPath = process.env.REACT_STORAGE_TOKEN
 
-const Layout = ({ children }) => {
-	const logoutFunction = () => {
-    localStorage.removeItem(authTokenPath)
-		return;
-	};
+const Layout = (props) => {
 	return (
 		<>
-			<AppBar logoutFunction={logoutFunction} />
-			<div style={{ marginBottom: '100px' }}>{children}</div>
+			<AppBar user={props.user} isLoggedIn={props.isLoggedIn} logoutFunction={props.logoutFunction} />
+			<div style={{ marginBottom: '100px' }}>{props.children}</div>
 			<FooterBar />
 		</>
 	);

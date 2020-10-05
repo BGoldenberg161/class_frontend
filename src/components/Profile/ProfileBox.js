@@ -8,7 +8,7 @@ const ProfileBox = props => {
 
 
     return(
-        <Box>
+        <Box align='center' alignContent='center'>
             <Heading level='3' margin={{ vertical: 'medium' }}>
                 {props.user.is_teacher ? <img src="https://img.shields.io/badge/-Teacher-000000?style=flat-square&logo=Apple&logoColor=ff0800" /> : <img src="https://img.shields.io/badge/-Student-000000?style=flat-square&logo=Swarm&logoColor=C7951F" />}
                 {<br/>}

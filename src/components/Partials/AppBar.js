@@ -14,6 +14,7 @@ import {
 } from 'grommet-icons';
 
 const AppBar = props => {
+	console.log(' 🐮', props.isLoggedIn);
 	return (
 		<div>
 			<Box
@@ -30,13 +31,7 @@ const AppBar = props => {
 					c<span style={{ color: '#6FFFB0' }}>ℓ</span>ass
 				</Heading>
 
-				<Anchor
-					as={Link}
-					to='/'
-					label='Home'
-					icon={<Home />}
-					hoverIndicator
-				/>
+				<Anchor as={Link} to='/' label='Home' icon={<Home />} hoverIndicator />
 				<Anchor
 					as={Link}
 					to='/about'
@@ -44,56 +39,61 @@ const AppBar = props => {
 					icon={<Cli />}
 					hoverIndicator
 				/>
-				<Anchor
-					as={Link}
-					to='/profile'
-					label='Profile'
-					icon={<User />}
-					hoverIndicator
-				/>
-				<Anchor
-					as={Link}
-					to='/assignment'
-					label='Assignment'
-					icon={<Catalog />}
-					hoverIndicator
-				/>
-				<Anchor
-					as={Link}
-					to='/grade'
-					label='Grades'
-					icon={<Achievement />}
-					hoverIndicator
-				/>
-				<Anchor
-					as={Link}
-					to='/class'
-					label='Class'
-					icon={<Workshop />}
-					hoverIndicator
-				/>
-				<Anchor
-					as={Link}
-					to='/signup'
-					label='Signup'
-					icon={<FingerPrint />}
-					hoverIndicator
-				/>
-				<Anchor
-					as={Link}
-					to='/login'
-					label='Login'
-					icon={<Login />}
-					hoverIndicator
-				/>
-				<Anchor
-					onClick={() => props.logoutFunction()}
-					as={Link}
-					to='/'
-					label='Logout'
-					icon={<Logout />}
-					hoverIndicator
-				/>
+				{!props.isLoggedIn && (
+					<>
+						<Anchor
+							as={Link}
+							to='/signup'
+							label='Signup'
+							icon={<FingerPrint />}
+							hoverIndicator
+						/>
+						<Anchor
+							as={Link}
+							to='/login'
+							label='Login'
+							icon={<Login />}
+							hoverIndicator
+						/>
+					</>
+				)}
+				{props.isLoggedIn && (
+					<>
+						<Anchor
+							as={Link}
+							to='/profile'
+							label='Profile'
+							icon={<User />}
+							hoverIndicator
+						/>
+						{props.is_teacher && (
+							<>
+								<Anchor
+									as={Link}
+									to='/assignment'
+									label='Assignment'
+									icon={<Catalog />}
+									hoverIndicator
+								/>
+							</>
+						)}
+						<Anchor
+							as={Link}
+							to='/class'
+							label='Class'
+							icon={<Workshop />}
+							hoverIndicator
+						/>
+						<Anchor
+							onClick={() => props.logoutFunction()}
+							as={Link}
+							to='/'
+							label='Logout'
+							icon={<Logout />}
+							hoverIndicator
+						/>
+					</>
+				)}
 			</Box>
 		</div>
 	);
