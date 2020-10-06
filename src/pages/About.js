@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import VideoPlayer from '../components/Utils/VideoPlayer';
+import React, { useContext } from 'react'
+import VideoPlayer from '../components/Utils/VideoPlayer'
 import {
 	Anchor,
 	Avatar,
@@ -10,16 +10,18 @@ import {
 	Box,
 	Heading,
 	Paragraph,
-	ResponsiveContext,
-} from 'grommet';
-import { Linkedin, Github, Transaction } from 'grommet-icons';
-import Yoel from '../assets/Yoel.jpeg';
-import Branden from '../assets/Branden.jpeg';
-import Channee from '../assets/Channee.jpeg';
-import Sameh from '../assets/Sameh.jpeg';
+	ResponsiveContext
+} from 'grommet'
+import { Linkedin, Github, Transaction } from 'grommet-icons'
+import Yoel from '../assets/Yoel.jpeg'
+import Branden from '../assets/Branden.jpeg'
+import Channee from '../assets/Channee.jpeg'
+import Sameh from '../assets/Sameh.jpeg'
 
-const About = props => {
-	const size = useContext(ResponsiveContext);
+const About = () => {
+
+	const size = useContext(ResponsiveContext)
+
 	return (
 		<div>
 			<Box pad='medium' align='center' justify='center'>
@@ -155,7 +157,7 @@ const About = props => {
 				<VideoPlayer />
 			</Box>
 		</div>
-	);
-};
+	)
+}
 
-export default About;
+export default About

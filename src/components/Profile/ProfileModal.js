@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
-import ProfileForm from './ProfileForm';
-import { Button, Layer, Anchor } from 'grommet';
+import React, { useState } from 'react'
+import ProfileForm from './ProfileForm'
+import { Button, Layer, Anchor } from 'grommet'
 
 const ProfileModal = props => {
-	const [show, setShow] = useState();
+
+    const [show, setShow] = useState()
+    
 	return (
 		<div>
 			<Anchor  label='Edit Profile' onClick={() => setShow(true)} />
@@ -17,7 +19,7 @@ const ProfileModal = props => {
 				</Layer>
 			)}
 		</div>
-	);
-};
+	)
+}
 
-export default ProfileModal;
+export default ProfileModal

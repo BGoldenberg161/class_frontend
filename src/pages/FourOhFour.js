@@ -1,9 +1,10 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Anchor, Main, Box, Image, Paragraph } from 'grommet';
-import { Home } from 'grommet-icons';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { Anchor, Main, Box, Image, Paragraph } from 'grommet'
+import { Home } from 'grommet-icons'
 
-const FourOhFour = props => {
+const FourOhFour = () => {
+
 	return (
 		<div>
 			<Main pad='large' align='center' justify='center'>
@@ -27,7 +28,7 @@ const FourOhFour = props => {
 				<Anchor as={Link} to='/' color='#6FFFB0' icon={<Home />} hoverIndicator />
 			</Main>
 		</div>
-	);
-};
+	)
+}
 
-export default FourOhFour;
+export default FourOhFour

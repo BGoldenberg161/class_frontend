@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Main, Box, Button, Form, FormField } from 'grommet';
-import { Attraction, Cubes } from 'grommet-icons';
+import React, { useState } from 'react'
+import { Main, Box, Button, Form, FormField } from 'grommet'
+import { Attraction, Cubes } from 'grommet-icons'
 import axios from 'axios'
 
 
@@ -27,8 +27,8 @@ const ClassForm = props => {
 			})
 			.catch(err =>
 				console.log(err, "You've hit an error in the axios call for add class")
-			);
-	};
+			)
+	}
 
 	return (
 		<div>
@@ -69,7 +69,7 @@ const ClassForm = props => {
 				</Box>
 			</Main>
 		</div>
-	);
-};
+	)
+}
 
-export default ClassForm;
+export default ClassForm

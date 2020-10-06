@@ -1,11 +1,13 @@
-import React from 'react';
+// future stretch goal GRADES PAGE
+import React from 'react'
 
-const Grade = props => {
+const Grade = () => {
+	
 	return (
 		<div>
 			<h1>Grades</h1>
 		</div>
-	);
-};
+	)
+}
 
-export default Grade;
+export default Grade

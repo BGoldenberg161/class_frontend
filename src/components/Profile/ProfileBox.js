@@ -1,9 +1,10 @@
-import React from 'react';
-import { Box, Heading, Text } from 'grommet';
-import { FormNext, Terminal } from 'grommet-icons';
-import ProfileModal from './ProfileModal';
+import React from 'react'
+import { Box, Heading, Text } from 'grommet'
+import { FormNext } from 'grommet-icons'
+import ProfileModal from './ProfileModal'
 
 const ProfileBox = props => {
+
 	return (
 		<Box
 			pad='small'
@@ -17,9 +18,9 @@ const ProfileBox = props => {
 				Welcome, {props.user.username}
 				{<br />}
 				{props.user.is_teacher ? (
-					<img src='https://img.shields.io/badge/-Teacher-000000?style=flat-square&logo=Apple&logoColor=ff0800' />
+					<img alt='teacher badge' src='https://img.shields.io/badge/-Teacher-000000?style=flat-square&logo=Apple&logoColor=ff0800' />
 				) : (
-					<img src='https://img.shields.io/badge/-Student-000000?style=flat-square&logo=Swarm&logoColor=C7951F' />
+					<img alt='student badge' src='https://img.shields.io/badge/-Student-000000?style=flat-square&logo=Swarm&logoColor=C7951F' />
 				)}
 				{<br />}
 			</Heading>
@@ -52,7 +53,7 @@ const ProfileBox = props => {
 				/>
 			</Box>
 		</Box>
-	);
-};
+	)
+}
 
-export default ProfileBox;
+export default ProfileBox

@@ -1,8 +1,9 @@
-import React from 'react';
-import { Main, Heading, Paragraph, Box, Image } from 'grommet';
-import Homebox from '../assets/homebox.png';
+import React from 'react'
+import { Main, Heading, Paragraph, Box, Image } from 'grommet'
+import Homebox from '../assets/homebox.png'
 
-const Home = props => {
+const Home = () => {
+
 	return (
 		<div>
 			<Main pad='large' align='center' justify='center'>
@@ -14,7 +15,7 @@ const Home = props => {
 						color: 'brand',
 						size: 'large',
 						style: 'inset',
-						side: 'all',
+						side: 'all'
 					}}
 				>
 					<Image responsive={true} fit='cover' src={Homebox} />
@@ -24,7 +25,7 @@ const Home = props => {
 				</Paragraph>
 			</Main>
 		</div>
-	);
-};
+	)
+}
 
-export default Home;
+export default Home

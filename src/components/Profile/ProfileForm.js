@@ -1,26 +1,24 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { Main, Box, Button, Form, FormField, TextInput, Select } from 'grommet';
-import { View, Hide, MailOption, ContactInfo, Sign } from 'grommet-icons';
-import { Redirect } from 'react-router-dom'
+import React, { useState } from 'react'
+import axios from 'axios'
+import { Main, Box, Button, Form, FormField, TextInput } from 'grommet'
+import { View, Hide, MailOption, ContactInfo, Sign } from 'grommet-icons'
 
 const ProfileForm = props => {
-	const [password, setPassword] = useState('');
-	const [reveal, setReveal] = useState(false);
-	const [firstName, setFirstName] = useState(props.user.first_name);
-	const [lastName, setLastName] = useState(props.user.last_name);
-	const [email, setEmail] = useState(props.user.email);
-	const [username, setUsername] = useState(props.user.username);
-	// const [successfulRegister, setSuccessfulRegister] = useState(false)
+
+	const [password, setPassword] = useState('')
+	const [reveal, setReveal] = useState(false)
+	const [firstName, setFirstName] = useState(props.user.first_name)
+	const [lastName, setLastName] = useState(props.user.last_name)
+	const [email, setEmail] = useState(props.user.email)
+	const [username, setUsername] = useState(props.user.username)
 
     const authorizationHeader = {
 		headers: {'Authorization': `Bearer ${props.token}`}
     }
     
 	const handleSubmit = e => {
-		e.preventDefault();
+		e.preventDefault()
         axios
-            // hit put route for user update
 			.put(`http://localhost:8000/api/user/${props.user.id}/`, {
 				username: username,
 				password: password,
@@ -35,21 +33,16 @@ const ProfileForm = props => {
 			})
 			.catch(err =>
 				console.log(err, "You've hit an error in the axios call for users")
-			);
-	};
+			)
+	}
 
 
 	return (
 		<div>
-			{/* {successfulRegister ? <Redirect to={{pathname: `/login/`}} /> : ''} */}
 			<Main pad='large' align='center' justify='center'>
 				<Box fill align='center' justify='center' pad='large'>
 					<Box width='medium'>
-						<Form
-							onSubmit={e => {
-								handleSubmit(e);
-							}}
-						>
+						<Form onSubmit={e => { handleSubmit(e) }} >
 							<FormField
 								reverse
 								icon={<ContactInfo />}
@@ -120,7 +113,7 @@ const ProfileForm = props => {
 				</Box>
 			</Main>
 		</div>
-	);
-};
+	)
+}
 
-export default ProfileForm;
+export default ProfileForm

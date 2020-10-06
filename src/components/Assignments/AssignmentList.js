@@ -20,24 +20,24 @@ const useStyles = makeStyles(theme => ({
 		maxWidth: 752,
 		position: 'relative',
 		overflow: 'scroll',
-		marginTop: '2vh',
+		marginTop: '2vh'
 	},
 	gridItem: {
 		maxHeight: '50vh'
 	},
 	demo: {
-		backgroundColor: theme.palette.background.paper,
+		backgroundColor: theme.palette.background.paper
 	},
 	title: {
-		margin: theme.spacing(4, 0, 2),
-	},
-}));
+		margin: theme.spacing(4, 0, 2)
+	}
+}))
 
 
 const AssignmentList = props => {
-	const classes = useStyles();
-	const [dense, setDense] = useState(false);
-	const [secondary, setSecondary] = useState(false);
+
+	const classes = useStyles()
+	const dense = false
 	const [classrooms, setClassrooms] = useState([])
 	const [assignedClassrooms, setAssignedClassrooms] = useState([])
 	
@@ -45,7 +45,7 @@ const AssignmentList = props => {
 		headers: {'Authorization': `Bearer ${props.token}`}
 	}
 
-	useEffect(() => {
+	useEffect((authorizationHeader, props) => {
 		const fetchData = async () => {
 			const getAssignedClasses = await axios(
 			  `http://localhost:8000/api/view-classrooms-assignments/${props.assignment.id}`,
@@ -154,7 +154,7 @@ const AssignmentList = props => {
 				</Grid>
 			</Grid>
 		</>
-	);
-};
+	)
+}
 
 export default AssignmentList

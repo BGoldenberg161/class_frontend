@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import UpdateClassModal from './UpdateClassModal';
-import ClassListModal from './ClassListModal';
-import StudentListModal from './StudentListModal';
+import React, { useState } from 'react'
+import UpdateClassModal from './UpdateClassModal'
+import ClassListModal from './ClassListModal'
+import StudentListModal from './StudentListModal'
 import axios from 'axios'
 import {
 	Box,
@@ -12,14 +12,14 @@ import {
 	Collapsible,
 	Heading,
 	Image,
-	Paragraph,
-	Text,
-} from 'grommet';
-import { FormUp, FormDown, Trash } from 'grommet-icons';
+	Paragraph
+} from 'grommet'
+import { FormUp, FormDown, Trash } from 'grommet-icons'
 
 const ClassCard = props => {
-	const [open, setOpen] = useState(false);
-	const [favorite, setFavorite] = useState(false);
+
+	const [open, setOpen] = useState(false)
+	const [favorite, setFavorite] = useState(false)
 	
 	const authorizationHeader = {
 		headers: {'Authorization': `Bearer ${props.token}`}
@@ -39,15 +39,15 @@ const ClassCard = props => {
 	}
 
 	const ExpandButton = ({ ...rest }) => {
-		const Icon = open ? FormUp : FormDown;
+		const Icon = open ? FormUp : FormDown
 		return (
 			<Button
 				hoverIndicator='light-4'
 				icon={<Icon color='brand' />}
 				{...rest}
 			/>
-		);
-	};
+		)
+	}
 	
 	return (
 		<Box pad='medium' align='start'>
@@ -73,7 +73,7 @@ const ClassCard = props => {
 							icon={<Trash color={favorite ? 'red' : undefined} />}
 							hoverIndicator
 							onClick={(e) => {
-								setFavorite(!favorite);
+								setFavorite(!favorite)
 								runDelete(e)
 							}}
 						/>
@@ -124,7 +124,7 @@ const ClassCard = props => {
 				</Collapsible>
 			</Card>
 		</Box>
-	);
-};
+	)
+}
 
-export default ClassCard;
+export default ClassCard

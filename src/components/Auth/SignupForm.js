@@ -1,28 +1,29 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { Main, Box, Button, Form, FormField, TextInput, Select } from 'grommet';
-import { View, Hide, MailOption, ContactInfo, Sign } from 'grommet-icons';
+import React, { useState } from 'react'
+import axios from 'axios'
+import { Main, Box, Button, Form, FormField, TextInput, Select } from 'grommet'
+import { View, Hide, MailOption, ContactInfo, Sign } from 'grommet-icons'
 import { Redirect } from 'react-router-dom'
 
-const SignupForm = props => {
-	const [password, setPassword] = useState('');
-	const [reveal, setReveal] = useState(false);
-	const [passwordTwo, setPasswordTwo] = useState('');
-	const [firstName, setFirstName] = useState('');
-	const [lastName, setLastName] = useState('');
-	const [email, setEmail] = useState('');
-	const [username, setUsername] = useState('');
-	const [isTeacher, setIsTeacher] = useState(false);
-	const [mismatchPassword, setMismatchPassword] = useState(false);
-	// handle mismatch password modal
+const SignupForm = () => {
+
+	const [password, setPassword] = useState('')
+	const [reveal, setReveal] = useState(false)
+	const [passwordTwo, setPasswordTwo] = useState('')
+	const [firstName, setFirstName] = useState('')
+	const [lastName, setLastName] = useState('')
+	const [email, setEmail] = useState('')
+	const [username, setUsername] = useState('')
+	const [isTeacher, setIsTeacher] = useState(false)
+	// handle mismatch password modal for stretch goal
+	// const [mismatchPassword, setMismatchPassword] = useState(false)
 	const [successfulRegister, setSuccessfulRegister] = useState(false)
 
 
 	const handleSubmit = e => {
-		e.preventDefault();
+		e.preventDefault()
 		if (password !== passwordTwo) {
-			setMismatchPassword(true);
-			return;
+			// setMismatchPassword(true)
+			return
 		}
 		axios
 			.post('http://localhost:8000/signup/', {
@@ -50,13 +51,7 @@ const SignupForm = props => {
 			<Main pad='large' align='center' justify='center'>
 				<Box fill align='center' justify='center' pad='large'>
 					<Box width='medium'>
-						<Form
-							// onChange={value => console.log("onChange", value)}
-							onSubmit={e => {
-								handleSubmit(e);
-								// console.log("onSubmit", event.value, event.touched)
-							}}
-						>
+						<Form onSubmit={e => { handleSubmit(e) }} >
 							<FormField
 								reverse
 								icon={<ContactInfo />}
@@ -157,7 +152,7 @@ const SignupForm = props => {
 				</Box>
 			</Main>
 		</div>
-	);
-};
+	)
+}
 
-export default SignupForm;
+export default SignupForm

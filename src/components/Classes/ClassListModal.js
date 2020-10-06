@@ -1,9 +1,11 @@
-import React, {useState} from 'react';
-import ClassList from './ClassList';
-import { Anchor, Button, Layer } from 'grommet';
+import React, { useState } from 'react'
+import ClassList from './ClassList'
+import { Anchor, Button, Layer } from 'grommet'
 
 const ClassListModal = props => {
-	const [show, setShow] = useState();
+
+    const [show, setShow] = useState()
+
 	return (
 		<div>
                 <Anchor  label='Add Students' onClick={() => setShow(true)} />
@@ -22,7 +24,7 @@ const ClassListModal = props => {
 					</Layer>
 				)}
 		</div>
-	);
-};
+	)
+}
 
-export default ClassListModal;
+export default ClassListModal

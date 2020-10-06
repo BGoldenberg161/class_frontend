@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
-import { Main, Box, Button, Form, FormField } from 'grommet';
-import { Book, Aggregate, Article  } from 'grommet-icons';
+import React, {useState} from 'react'
+import { Main, Box, Button, Form, FormField } from 'grommet'
+import { Book, Aggregate, Article  } from 'grommet-icons'
 import axios from 'axios'
 
 const AssignmentForm = props => {
@@ -14,7 +14,7 @@ const AssignmentForm = props => {
 	  }
 
 	const handleSubmit = e => {
-		e.preventDefault();
+		e.preventDefault()
 		axios
 			.post('http://localhost:8000/api/assignments/', {
 				name: assignmentName,
@@ -23,24 +23,20 @@ const AssignmentForm = props => {
 			},
 			authorizationHeader)
 			.then(res => {
-				console.log(res.data);
+				console.log(res.data)
 				props.fetchAssignments()
 			})
 			.catch(err =>
 				console.log(err, "You've hit an error in the axios call for users")
-			);
-	};
+			)
+	}
 
 	return (
 		<div>
 			<Main pad='large' align='center' justify='center'>
 				<Box fill align='center' justify='center' >
 					<Box width='medium'>
-						<Form
-							onSubmit={e => {
-								handleSubmit(e);
-							}}
-						>
+						<Form onSubmit={e => { handleSubmit(e) }} >
 							<FormField
 								reverse
 								icon={<Book />}
@@ -81,7 +77,7 @@ const AssignmentForm = props => {
 				</Box>
 			</Main>
 		</div>
-	);
-};
+	)
+}
 
-export default AssignmentForm;
+export default AssignmentForm

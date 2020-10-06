@@ -1,16 +1,16 @@
-import React, {useState, useEffect} from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
-import ListItemText from '@material-ui/core/ListItemText';
-import Avatar from '@material-ui/core/Avatar';
-import IconButton from '@material-ui/core/IconButton';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import Class from '@material-ui/icons/Class';
-import ExitToApp from '@material-ui/icons/ExitToApp';
+import React, {useState, useEffect} from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
+import ListItemAvatar from '@material-ui/core/ListItemAvatar'
+import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction'
+import ListItemText from '@material-ui/core/ListItemText'
+import Avatar from '@material-ui/core/Avatar'
+import IconButton from '@material-ui/core/IconButton'
+import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
+import Class from '@material-ui/icons/Class'
+import ExitToApp from '@material-ui/icons/ExitToApp'
 import axios from 'axios'
 
 const useStyles = makeStyles(theme => ({
@@ -19,31 +19,31 @@ const useStyles = makeStyles(theme => ({
 		maxWidth: 752,
 		position: 'relative',
 		overflow: 'scroll',
-		marginTop: '2vh',
+		marginTop: '2vh'
 	},
 	gridItem: {
 		maxHeight: '50vh'
 	},
 	demo: {
-		backgroundColor: theme.palette.background.paper,
+		backgroundColor: theme.palette.background.paper
 	},
 	title: {
-		margin: theme.spacing(4, 0, 2),
-	},
-}));
+		margin: theme.spacing(4, 0, 2)
+	}
+}))
 
 
 const ClassList = props => {
-	const classes = useStyles();
-    const [dense, setDense] = useState(false);
+
+	const classes = useStyles()
+    const dense = false
     const [assignments, setAssignments] = useState([])
 	
     const authorizationHeader = {
 		headers: {'Authorization': `Bearer ${props.token}`}
 	}
 
-	useEffect(() => {
-        // put in classroom ID get out assignments
+	useEffect((props) => {
             axios.get(`http://localhost:8000/api/classrooms-assignments-modal/${props.classroom.id}/`, authorizationHeader)
             .then(res => {
                 console.log('Here is the assignment data: ', res.data)
@@ -73,7 +73,6 @@ const ClassList = props => {
 											</ListItemAvatar>
 											<ListItemText
 												primary={assignment.name}
-												// secondary={student.user.last_name}
 											/>
 											<ListItemSecondaryAction>
 												<IconButton edge='end' aria-label='link' href={assignment.url} target="_blank">
@@ -87,7 +86,7 @@ const ClassList = props => {
 				</Grid>
 			</Grid>
 		</>
-	);
-};
+	)
+}
 
-export default ClassList;
+export default ClassList

@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
-import { Main, Box, Button, Form, FormField } from 'grommet';
-import { Book, Aggregate, Article  } from 'grommet-icons';
+import React, {useState} from 'react'
+import { Main, Box, Button, Form, FormField } from 'grommet'
+import { Book, Aggregate, Article  } from 'grommet-icons'
 import axios from 'axios'
 
 const UpdateAssignmentForm = props => {
@@ -24,13 +24,13 @@ const UpdateAssignmentForm = props => {
 			}, 
 			authorizationHeader)
 			.then(res => {
-				console.log(res.data);
+				console.log(res.data)
 				props.fetchAssignments()
 			})
 			.catch(err =>
 				console.log(err, "You've hit an error in the axios call for updateClass")
-			);
-	};
+			)
+	}
 
 	return (
 		<div>
@@ -81,7 +81,7 @@ const UpdateAssignmentForm = props => {
 				</Box>
 			</Main>
 		</div>
-	);
-};
+	)
+}
 
-export default UpdateAssignmentForm;
+export default UpdateAssignmentForm

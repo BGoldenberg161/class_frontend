@@ -1,9 +1,11 @@
-import React from 'react';
-import UpdateClassForm from './UpdateClassForm';
-import { Button, Layer, Anchor } from 'grommet';
+import React from 'react'
+import UpdateClassForm from './UpdateClassForm'
+import { Button, Layer, Anchor } from 'grommet'
 
 const UpdateClassModal = props => {
-	const [show, setShow] = React.useState();
+
+	const [show, setShow] = React.useState()
+
 	return (
 		<div>
 			<Anchor  label='Update Class' onClick={() => setShow(true)} />
@@ -17,7 +19,7 @@ const UpdateClassModal = props => {
 				</Layer>
 			)}
 		</div>
-	);
-};
+	)
+}
 
-export default UpdateClassModal;
+export default UpdateClassModal

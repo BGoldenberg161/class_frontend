@@ -1,40 +1,40 @@
-import React, { useState, useEffect } from 'react';
-import ClassCard from '../components/Classes/ClassCard';
-import { Box, ResponsiveContext, Grid } from 'grommet';
-import AddClassModal from '../components/Classes/AddClassModal';
-import axios from 'axios';
+import React, { useState, useEffect } from 'react'
+import ClassCard from '../components/Classes/ClassCard'
+import { Box, ResponsiveContext, Grid } from 'grommet'
+import AddClassModal from '../components/Classes/AddClassModal'
+import axios from 'axios'
 
 const Class = props => {
-	const [classes, setClasses] = useState([]);
+
+	const [classes, setClasses] = useState([])
 
 	const authorizationHeader = {
-		headers: { Authorization: `Bearer ${props.token}` },
-	};
+		headers: { Authorization: `Bearer ${props.token}` }
+	}
 
 	const fetchClasses = () => {
 		axios
 			.get('http://localhost:8000/api/classrooms/', authorizationHeader)
 			.then(res => {
-				setClasses(res.data);
-				console.log('Here is the class data: ', res.data);
+				setClasses(res.data)
+				console.log('Here is the class data: ', res.data)
 			})
 			.catch(err =>
 				console.log(err, "You've hit an error in the axios call for classes")
-			);
-	};
+			)
+	}
 
-	useEffect(() => {
-		console.log(props.token);
+	useEffect((authorizationHeader) => {
 		axios
 			.get('http://localhost:8000/api/classrooms/', authorizationHeader)
 			.then(res => {
-				setClasses(res.data);
-				console.log('Here is the class data: ', res.data);
+				setClasses(res.data)
+				console.log('Here is the class data: ', res.data)
 			})
 			.catch(err =>
 				console.log(err, "You've hit an error in the axios call for classes")
-			);
-	}, [props.token, props.currentUser]);
+			)
+	}, [props.token, props.currentUser])
 
 	return (
 		<>
@@ -66,10 +66,10 @@ const Class = props => {
 												token={props.token}
 												fetchClasses={fetchClasses}
 											/>
-										);
+										)
 									})}
 								</Grid>
-							);
+							)
 						} else if (size === 'medium') {
 							return (
 								<Grid columns={['auto', 'auto']}>
@@ -83,10 +83,10 @@ const Class = props => {
 												token={props.token}
 												fetchClasses={fetchClasses}
 											/>
-										);
+										)
 									})}
 								</Grid>
-							);
+							)
 						} else {
 							return (
 								<Grid columns={['auto', 'auto', 'auto']}>
@@ -100,16 +100,16 @@ const Class = props => {
 												token={props.token}
 												fetchClasses={fetchClasses}
 											/>
-										);
+										)
 									})}
 								</Grid>
-							);
+							)
 						}
 					}}
 				</ResponsiveContext>
 			</Box>
 		</>
-	);
-};
+	)
+}
 
-export default Class;
+export default Class
