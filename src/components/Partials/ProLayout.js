@@ -1,25 +1,20 @@
-import React, { useState, useEffect } from "react"
-import axios from "axios"
+import React from "react"
+// import axios from "axios"
 import {
   Accordion,
   AccordionPanel,
-  Button,
   Box,
   Grid,
   Meter,
   Stack,
   Text,
-  Heading,
+  Heading
 } from "grommet"
-import { Toast } from "grommet-icons"
+// import { Toast } from "grommet-icons"
 import { Link } from "react-router-dom"
 import Cloudinary from "../Cloudinary/Cloudinary"
 
-// import DjangoCSRFToken from "django-react-csrftoken"
-
 const ProLayout = props => {
-  console.log(props)
-
   // meter for main
   const mathValue = 98.6
   const englishValue = 90.1

@@ -1,8 +1,9 @@
-import React from 'react';
-import { Video, Box } from 'grommet';
+import React from 'react'
+import { Video, Box } from 'grommet'
 import Promo from '../../assets/Video/classVideo.mp4'
 
-const VideoPlayer = props => {
+const VideoPlayer = () => {
+	
 	return (
 		<div>
 			<Box align='center' pad='large'>
@@ -23,7 +24,7 @@ const VideoPlayer = props => {
 				</Video>
 			</Box>
 		</div>
-	);
-};
+	)
+}
 
-export default VideoPlayer;
+export default VideoPlayer

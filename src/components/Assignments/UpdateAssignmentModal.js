@@ -1,9 +1,11 @@
-import React from 'react';
-import UpdateAssignmentForm from './UpdateAssignmentForm';
-import { Button, Layer, Anchor } from 'grommet';
+import React from 'react'
+import UpdateAssignmentForm from './UpdateAssignmentForm'
+import { Button, Layer, Anchor } from 'grommet'
 
 const UpdateAssignmentModal = props => {
-	const [show, setShow] = React.useState();
+
+	const [show, setShow] = React.useState()
+
 	return (
 		<div>
 			<Anchor  label='Update Assignment' onClick={() => setShow(true)} />
@@ -17,7 +19,7 @@ const UpdateAssignmentModal = props => {
 				</Layer>
 			)}
 		</div>
-	);
-};
+	)
+}
 
-export default UpdateAssignmentModal;
+export default UpdateAssignmentModal

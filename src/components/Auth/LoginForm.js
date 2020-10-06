@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Main, Box, Button, Form, FormField, TextInput } from 'grommet'
 import { View, Hide, Sign } from 'grommet-icons'
 import axios from 'axios'
@@ -9,6 +9,7 @@ const authTokenPath = process.env.REACT_STORAGE_TOKEN
 
 
 const LoginForm = props => {
+	
 	const [value, setValue] = useState('')
 	const [reveal, setReveal] = useState(false)
 	const [username, setUsername] = useState('')

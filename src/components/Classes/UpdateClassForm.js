@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
-import { Main, Box, Button, Form, FormField } from 'grommet';
-import {  Attraction, Cubes } from 'grommet-icons';
+import React, { useState } from 'react'
+import { Main, Box, Button, Form, FormField } from 'grommet'
+import {  Attraction, Cubes } from 'grommet-icons'
 import axios from 'axios'
 
 const UpdateClassForm = props => {
@@ -22,8 +22,7 @@ const UpdateClassForm = props => {
 			}, 
 			authorizationHeader)
 			.then(res => {
-				console.log(res);
-				console.log(res.data);
+				console.log(res.data)
 				props.fetchClasses()
 			})
 			.catch(err =>
@@ -70,7 +69,7 @@ const UpdateClassForm = props => {
 				</Box>
 			</Main>
 		</div>
-	);
-};
+	)
+}
 
-export default UpdateClassForm;
+export default UpdateClassForm

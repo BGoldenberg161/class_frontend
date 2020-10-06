@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
-import UpdateAssignmentModal from './UpdateAssignmentModal';
+import React, { useState } from 'react'
+import UpdateAssignmentModal from './UpdateAssignmentModal'
 import axios from 'axios'
 import {
-	Anchor,
 	Box,
 	Button,
 	Card,
@@ -10,15 +9,15 @@ import {
 	CardFooter,
 	Collapsible,
 	Heading,
-	Paragraph,
-	Text,
-} from 'grommet';
-import { FormUp, FormDown, Trash } from 'grommet-icons';
-import AssignmentListModal from './AssignmentListModal';
+	Paragraph
+} from 'grommet'
+import { FormUp, FormDown, Trash } from 'grommet-icons'
+import AssignmentListModal from './AssignmentListModal'
 
 const AssignmentCard = props => {
-	const [open, setOpen] = useState(false);
-	const [favorite, setFavorite] = useState(false);
+
+	const [open, setOpen] = useState(false)
+	const [favorite, setFavorite] = useState(false)
 
 	const authorizationHeader = {
 		headers: {'Authorization': `Bearer ${props.token}`}
@@ -38,15 +37,16 @@ const AssignmentCard = props => {
 	}
 
 	const ExpandButton = ({ ...rest }) => {
-		const Icon = open ? FormUp : FormDown;
+		const Icon = open ? FormUp : FormDown
 		return (
 			<Button
 				hoverIndicator='light-4'
 				icon={<Icon color='brand' />}
 				{...rest}
 			/>
-		);
-	};
+		)
+	}
+
 	return (
 		<Box pad='medium' align='start'>
 			<Card elevation='large' width='medium'>
@@ -68,7 +68,7 @@ const AssignmentCard = props => {
 							icon={<Trash color={favorite ? 'red' : undefined} />}
 							hoverIndicator
 							onClick={(e) => {
-								setFavorite(!favorite);
+								setFavorite(!favorite)
 								runDelete(e)
 							}}
 						/>
@@ -96,7 +96,7 @@ const AssignmentCard = props => {
 				</Collapsible>
 			</Card>
 		</Box>
-	);
-};
+	)
+}
 
-export default AssignmentCard;
+export default AssignmentCard

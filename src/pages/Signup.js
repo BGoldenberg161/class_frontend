@@ -1,12 +1,13 @@
-import React from 'react';
-import SignupForm from '../components/Auth/SignupForm';
+import React from 'react'
+import SignupForm from '../components/Auth/SignupForm'
 
-const Signup = props => {
+const Signup = () => {
+
 	return (
 		<div>
 			<SignupForm />
 		</div>
-	);
-};
+	)
+}
 
-export default Signup;
+export default Signup

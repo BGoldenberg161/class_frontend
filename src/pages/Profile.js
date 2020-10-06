@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios"
-import ProLayout from '../components/Partials/ProLayout'
+// import ProLayout from '../components/Partials/ProLayout'
 import ProfileBox from '../components/Profile/ProfileBox'
 
 const Profile = props => {
 
-  // making state for user 9:34am, thursday, 10/01/2020
   const [user, setUser] = useState("")
+
   const authorizationHeader = {
     headers: { 'Authorization': `Bearer ${props.token}` }
   }
-  console.log('🧚🏻‍♀️', props.currentUser)
 
   const renderProfile = () => {
     axios
@@ -25,7 +24,7 @@ const Profile = props => {
       )
   }
 
-  useEffect(() => {
+  useEffect((renderProfile) => {
     renderProfile()
   }, [props.token, props.currentUser])
 

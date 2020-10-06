@@ -1,20 +1,19 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Anchor, Box, Heading } from 'grommet';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { Anchor, Box, Heading } from 'grommet'
 import {
 	Home,
 	Cli,
 	User,
 	Catalog,
-	Achievement,
 	Workshop,
 	FingerPrint,
 	Login,
-	Logout,
-} from 'grommet-icons';
+	Logout
+} from 'grommet-icons'
 
 const AppBar = props => {
-	console.log(' 🐮', props.isLoggedIn);
+
 	return (
 		<div>
 			<Box
@@ -96,7 +95,7 @@ const AppBar = props => {
 				)}
 			</Box>
 		</div>
-	);
-};
+	)
+}
 
-export default AppBar;
+export default AppBar

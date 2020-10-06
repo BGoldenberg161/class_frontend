@@ -1,8 +1,9 @@
-import React from 'react';
-import { Box, Footer, Text } from 'grommet';
-import { FormNext } from 'grommet-icons';
+import React from 'react'
+import { Box, Footer, Text } from 'grommet'
+import { FormNext } from 'grommet-icons'
 
-const FooterBar = props => {
+const FooterBar = () => {
+	
 	return (
 		<div>
 			<Box
@@ -31,7 +32,7 @@ const FooterBar = props => {
 				</Footer>
 			</Box>
 		</div>
-	);
-};
+	)
+}
 
-export default FooterBar;
+export default FooterBar

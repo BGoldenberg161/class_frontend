@@ -1,9 +1,11 @@
-import React from 'react';
-import ClassForm from './ClassForm';
+import React from 'react'
+import ClassForm from './ClassForm'
 import { Box, Button, Layer } from 'grommet'
 
 const AddClassModal = props => {
-  const [show, setShow] = React.useState();
+
+  const [show, setShow] = React.useState()
+
 	return (
 		<div>
 			<Box>
@@ -19,7 +21,7 @@ const AddClassModal = props => {
 				)}
 			</Box>
 		</div>
-	);
-};
+	)
+}
 
-export default AddClassModal;
+export default AddClassModal
