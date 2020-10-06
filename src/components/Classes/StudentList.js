@@ -39,15 +39,15 @@ const ClassList = props => {
     const dense = false
     const [assignments, setAssignments] = useState([])
 	
-    const authorizationHeader = {
-		headers: {'Authorization': `Bearer ${props.token}`}
-	}
-
-	useEffect((props) => {
-            axios.get(`http://localhost:8000/api/classrooms-assignments-modal/${props.classroom.id}/`, authorizationHeader)
-            .then(res => {
-                console.log('Here is the assignment data: ', res.data)
-                setAssignments(res.data)
+		
+		useEffect((props) => {
+			const authorizationHeader = {
+			headers: {'Authorization': `Bearer ${props.token}`}
+		}
+			axios.get(`http://localhost:8000/api/classrooms-assignments-modal/${props.classroom.id}/`, authorizationHeader)
+			.then(res => {
+				console.log('Here is the assignment data: ', res.data)
+				setAssignments(res.data)
               })
               .catch(err =>
                 console.log(err, "You've hit an error in the axios call for assignments")
