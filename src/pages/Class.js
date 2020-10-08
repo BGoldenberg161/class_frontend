@@ -24,7 +24,12 @@ const Class = props => {
 			)
 	}
 
-	useEffect((authorizationHeader) => {
+	useEffect(() => {
+
+		const authorizationHeader = {
+			headers: { Authorization: `Bearer ${props.token}` }
+		}
+
 		axios
 			.get('http://localhost:8000/api/classrooms/', authorizationHeader)
 			.then(res => {

@@ -45,7 +45,12 @@ const AssignmentList = props => {
 		headers: {'Authorization': `Bearer ${props.token}`}
 	}
 
-	useEffect((authorizationHeader, props) => {
+	useEffect((props) => {
+
+		const authorizationHeader = {
+			headers: {'Authorization': `Bearer ${props.token}`}
+		}
+
 		const fetchData = async () => {
 			const getAssignedClasses = await axios(
 			  `http://localhost:8000/api/view-classrooms-assignments/${props.assignment.id}`,

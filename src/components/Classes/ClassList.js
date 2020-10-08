@@ -60,7 +60,7 @@ const ClassList = props => {
 		console.log('ℌ Assigned Students: ', assignedStudents)
 	}
 
-	useEffect((fetchData) => {
+	useEffect(() => {
 		fetchData()
 	}, [props.token, props.currentUser])
 
