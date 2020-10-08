@@ -24,7 +24,7 @@ const Profile = props => {
       )
   }
 
-  useEffect((renderProfile) => {
+  useEffect(() => {
     renderProfile()
   }, [props.token, props.currentUser])
 
