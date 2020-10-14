@@ -167,7 +167,7 @@ toml==0.10.1
 tornado==6.0.4
 # traitlets==5.0.4
 Twisted==18.9.0
-ubuntu-advantage-tools==20.3
+# ubuntu-advantage-tools==20.3
 ufw==0.36
 unattended-upgrades==0.1
 urllib3==1.25.8
