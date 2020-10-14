@@ -26,7 +26,7 @@ const SignupForm = () => {
 			return
 		}
 		axios
-			.post('http://localhost:8000/signup/', {
+			.post('/signup/', {
 				username: username,
 				password: password,
 				first_name: firstName,
@@ -47,7 +47,7 @@ const SignupForm = () => {
 
 	return (
 		<div>
-			{successfulRegister ? <Redirect to={{pathname: `/login/`}} /> : ''}
+			{successfulRegister ? <Redirect to={{pathname: `/get-in/`}} /> : ''}
 			<Main pad='large' align='center' justify='center'>
 				<Box fill align='center' justify='center' pad='large'>
 					<Box width='medium'>
