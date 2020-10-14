@@ -125,7 +125,7 @@ pycparser==2.20
 pycurl==7.43.0.6
 PyDispatcher==2.0.5
 Pygments==2.7.0
-PyGObject==3.36.0
+# PyGObject==3.36.0
 PyHamcrest==1.9.0
 PyJWT==1.7.1
 pylint==2.6.0
