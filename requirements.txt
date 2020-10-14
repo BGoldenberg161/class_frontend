@@ -25,7 +25,7 @@ click-repl==0.1.6
 # cloud-init==20.3
 colorama==0.4.3
 colour==0.1.5
-command-not-found==0.3
+# command-not-found==0.3
 configobj==5.0.6
 constantly==15.1.0
 cryptography==2.8
