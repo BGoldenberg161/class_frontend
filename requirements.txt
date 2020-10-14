@@ -1,10 +1,12 @@
-asgiref @ file:///Users/brandengoldenberg/Library/Caches/pypoetry/artifacts/7a/84/cb/7f7f5bab53d2d02226638573ba573c89ae5c9203ffeed237c3df238a2f/asgiref-3.2.10-py3-none-any.whl
-dj-database-url @ file:///Users/brandengoldenberg/Library/Caches/pypoetry/artifacts/86/81/2f/8da8bcd6372e6797609dd5d6191fd427ed8aeb7bd818cfbf8c2d7b4cde/dj_database_url-0.5.0-py2.py3-none-any.whl
-Django @ file:///Users/brandengoldenberg/Library/Caches/pypoetry/artifacts/0e/fe/9f/25e3eb5779462c91fcff623c91ca1eb6c4dae19dce07d72580f28bd22b/Django-3.1.2-py3-none-any.whl
-django-heroku @ file:///Users/brandengoldenberg/Library/Caches/pypoetry/artifacts/da/df/9c/7ed17c1dc8edc0ccbd03efccaca6f9270b2aedcb3af280538540f04fe9/django_heroku-0.3.1-py2.py3-none-any.whl
-djangorestframework @ file:///Users/brandengoldenberg/Library/Caches/pypoetry/artifacts/f5/b2/ec/027f4f8ff548a9ccfd9d1b412a78feb8eae69fa4b1b34735d218beb773/djangorestframework-3.12.1-py3-none-any.whl
-gunicorn @ file:///Users/brandengoldenberg/Library/Caches/pypoetry/artifacts/b5/fa/14/5790a1a5da3a5144bc505c39d8003baa6f64040928b75d0e0779683287/gunicorn-20.0.4-py2.py3-none-any.whl
-psycopg2 @ file:///Users/brandengoldenberg/Library/Caches/pypoetry/artifacts/71/58/97/71aebefdfa9af21d5f66f51b28f6a31be7970d680f021fc8f0bc49c974/psycopg2-2.8.6.tar.gz
-pytz @ file:///Users/brandengoldenberg/Library/Caches/pypoetry/artifacts/0c/2d/6d/546b8b70e269f540d852d77ce42996d57e257db51c3c2fd37dd06e9421/pytz-2020.1-py2.py3-none-any.whl
-sqlparse @ file:///Users/brandengoldenberg/Library/Caches/pypoetry/artifacts/f6/9e/b8/b33d7ab31a08d0f94b260c990d807e12f38e0ffb105a4c2ca9ad9a6434/sqlparse-0.4.1-py3-none-any.whl
-whitenoise @ file:///Users/brandengoldenberg/Library/Caches/pypoetry/artifacts/85/9d/ae/96bb78abce27b6862969fd9e72817c63580afa169b43960b46f8819c6e/whitenoise-5.2.0-py2.py3-none-any.whl
+asgiref==3.2.10
+dj-database-url==0.5.0
+Django==3.1.1
+django-heroku==0.3.1
+djangorestframework==3.11.1
+djangorestframework-jwt==1.11.0
+djangorestframework-simplejwt==4.4.0
+gunicorn==20.0.4
+psycopg2==2.8.4
+pytz==2020.1
+sqlparse==0.3.1
+whitenoise==5.2.0
