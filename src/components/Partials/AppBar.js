@@ -49,7 +49,7 @@ const AppBar = props => {
 						/>
 						<Anchor
 							as={Link}
-							to='/login'
+							to='/get-in'
 							label='Login'
 							icon={<Login />}
 							hoverIndicator

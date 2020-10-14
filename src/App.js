@@ -134,8 +134,8 @@ function App() {
 			<Layout user={user} isLoggedIn={isLoggedIn} logoutFunction={logoutFunction}>
 				<Switch>
 					<Route path='/about' component={About} />
-					<Route path='/signup' component={Signup} />
-					<Route path='/login' render={(props) => <Login {...props} setToken={setToken} /> } />
+					<Route path='/create' component={Signup} />
+					<Route path='/get-in' render={(props) => <Login {...props} setToken={setToken} /> } />
 					<Route path='/profile' render={(props) => <Profile {...props} currentUser={currentUser} token={token} updateUserData={updateUserData} /> } />
 					<Route path='/assignment' render={(props) => <Assignment {...props} user={user} currentUser={currentUser} token={token} /> } />
 					<Route path='/grade' component={Grade} />
