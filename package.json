@@ -15,6 +15,7 @@
     "dotenv": "^8.2.0",
     "grommet": "^2.15.0",
     "grommet-icons": "^4.5.0",
+    "heroku-cli": "^7.0.9",
     "jwt-decode": "^3.0.0",
     "material-ui-dropzone": "^3.5.0",
     "react": "^16.13.1",
