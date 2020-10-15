@@ -40,7 +40,7 @@ const ClassList = props => {
     const [assignments, setAssignments] = useState([])
 	
 		
-		useEffect((props) => {
+		useEffect(() => {
 			const authorizationHeader = {
 			headers: {'Authorization': `Bearer ${props.token}`}
 		}
