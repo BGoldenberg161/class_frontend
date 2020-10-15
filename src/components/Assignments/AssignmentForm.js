@@ -16,7 +16,7 @@ const AssignmentForm = props => {
 	const handleSubmit = e => {
 		e.preventDefault()
 		axios
-			.post('http://localhost:8000/api/assignments/', {
+			.post('/api/assignments/', {
 				name: assignmentName,
 				description: description,
 				url: url,

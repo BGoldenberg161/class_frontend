@@ -19,7 +19,7 @@ const LoginForm = props => {
 	const handleLogin = e => {
 		e.preventDefault()
 		axios
-			.post('http://localhost:8000/login/', {
+			.post('/login/', {
 				username: username,
 				password: password
 			})

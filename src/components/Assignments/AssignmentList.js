@@ -53,11 +53,11 @@ const AssignmentList = props => {
 
 		const fetchData = async () => {
 			const getAssignedClasses = await axios(
-			  `http://localhost:8000/api/view-classrooms-assignments/${props.assignment.id}`,
+			  `/api/view-classrooms-assignments/${props.assignment.id}`,
 			  authorizationHeader
 			  )
 			const getTeachersClasses = await axios(
-			  `http://localhost:8000/api/classrooms/`,
+			  `/api/classrooms/`,
 			  authorizationHeader
 			  )
 			setClassrooms(getTeachersClasses.data)
@@ -68,11 +68,11 @@ const AssignmentList = props => {
 
 	const fetchData = async () => {
 		const getAssignedClasses = await axios.get(
-		  `http://localhost:8000/api/view-classrooms-assignments/${props.assignment.id}`,
+		  `/api/view-classrooms-assignments/${props.assignment.id}`,
 		  authorizationHeader
 		  )
 		const getTeachersClasses = await axios.get(
-		  `http://localhost:8000/api/classrooms/`,
+		  `/api/classrooms/`,
 		  authorizationHeader
 		  )
 		setClassrooms(getTeachersClasses.data)
@@ -85,7 +85,7 @@ const AssignmentList = props => {
 		console.log(id)
 		console.log(props.assignment.id)
 		axios
-			.post('http://localhost:8000/api/create-classrooms-assignments/', {
+			.post('api/create-classrooms-assignments/', {
 				classroom: id,
 				assignment: props.assignment.id
 			},

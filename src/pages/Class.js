@@ -14,7 +14,7 @@ const Class = props => {
 
 	const fetchClasses = () => {
 		axios
-			.get('http://localhost:8000/api/classrooms/', authorizationHeader)
+			.get('/api/classrooms/', authorizationHeader)
 			.then(res => {
 				setClasses(res.data)
 				console.log('Here is the class data: ', res.data)
@@ -31,7 +31,7 @@ const Class = props => {
 		}
 
 		axios
-			.get('http://localhost:8000/api/classrooms/', authorizationHeader)
+			.get('/api/classrooms/', authorizationHeader)
 			.then(res => {
 				setClasses(res.data)
 				console.log('Here is the class data: ', res.data)

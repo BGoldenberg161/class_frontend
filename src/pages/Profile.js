@@ -13,7 +13,7 @@ const Profile = props => {
 
   const renderProfile = () => {
     axios
-      .get(`http://localhost:8000/api/user/${props.currentUser.user_id}`, authorizationHeader)
+      .get(`/api/user/${props.currentUser.user_id}`, authorizationHeader)
       .then(res => {
         console.log('Here is the user data ya bitch: ', res.data)
         setUser(res.data)

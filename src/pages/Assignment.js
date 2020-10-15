@@ -14,7 +14,7 @@ const Assignment = props => {
 
 	const fetchAssignments = () => {
 		axios
-		  .get('http://localhost:8000/api/assignments/', authorizationHeader)
+		  .get('/api/assignments/', authorizationHeader)
 		  .then(res => {
 			setAssignments(res.data)
 			console.log('Here is the class data: ', res.data)
@@ -31,7 +31,7 @@ const Assignment = props => {
 		}
 
 		axios
-		  .get('http://localhost:8000/api/assignments/', authorizationHeader)
+		  .get('/api/assignments/', authorizationHeader)
 		  .then(res => {
 			setAssignments(res.data)
 			console.log('Here is the class data: ', res.data)

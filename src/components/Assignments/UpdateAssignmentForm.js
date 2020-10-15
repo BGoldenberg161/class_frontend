@@ -17,7 +17,7 @@ const UpdateAssignmentForm = props => {
 		e.preventDefault()
 		console.log(authorizationHeader)
 		axios
-			.put(`http://localhost:8000/api/assignment/${props.assignmentId}/`, {
+			.put(`/api/assignment/${props.assignmentId}/`, {
 				name: assignmentName,
 				url: url,
 				description: description

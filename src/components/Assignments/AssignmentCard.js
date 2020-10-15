@@ -26,7 +26,7 @@ const AssignmentCard = props => {
 	const runDelete = (e) => {
 		e.preventDefault()
 		axios
-			.delete(`http://localhost:8000/api/assignment/${props.assignment.id}`, authorizationHeader)
+			.delete(`/api/assignment/${props.assignment.id}`, authorizationHeader)
 			.then(res => {
 				console.log('delete response', res)
 				props.fetchAssignments()
