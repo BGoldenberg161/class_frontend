@@ -47,11 +47,11 @@ const ClassList = props => {
 	
 	const fetchData = async () => {
 		const getAssignedStudents = await axios.get(
-		  `http://localhost:8000/api/students-classrooms/${props.classroom.id}`,
+		  `/api/students-classrooms/${props.classroom.id}`,
 		  authorizationHeader
 		  )
 		const getClassroomsStudents = await axios.get(
-		  `http://localhost:8000/api/student/`,
+		  `/api/student/`,
 		  authorizationHeader
 		  )
 		setStudents(getClassroomsStudents.data)
@@ -67,7 +67,7 @@ const ClassList = props => {
 	const addToClass = (id) => {
 		console.log(id)
 		axios
-			.post('http://localhost:8000/api/students-classrooms/', {
+			.post('/api/students-classrooms/', {
 				student: id,
 				classroom: props.classroom.id
 			},

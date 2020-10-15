@@ -16,7 +16,7 @@ const UpdateClassForm = props => {
 		e.preventDefault()
 		console.log(props)
 		axios
-			.put(`http://localhost:8000/api/classroom/${props.classroom.id}/`, {
+			.put(`/api/classroom/${props.classroom.id}/`, {
 				name: className,
 				gradeLevel: gradeLevel
 			}, 

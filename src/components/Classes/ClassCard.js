@@ -28,7 +28,7 @@ const ClassCard = props => {
 	const runDelete = (e) => {
 		e.preventDefault()
 		axios
-			.delete(`http://localhost:8000/api/classroom/${props.classroom.id}`, authorizationHeader)
+			.delete(`/api/classroom/${props.classroom.id}`, authorizationHeader)
 			.then(res => {
 				console.log('delete response', res)
 				props.fetchClasses()

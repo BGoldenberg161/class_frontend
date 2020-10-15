@@ -105,7 +105,7 @@ function App() {
 				headers: { 'Authorization': `Bearer ${token}` }
 			}
 			axios
-      .get(`http://localhost:8000/api/user/${currentUser.user_id}`, authorizationHeader)
+      .get(`/api/user/${currentUser.user_id}`, authorizationHeader)
       .then(res => {
         setUser(res.data)
       })

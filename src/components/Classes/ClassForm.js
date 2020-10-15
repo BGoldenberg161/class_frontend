@@ -16,7 +16,7 @@ const ClassForm = props => {
 	const handleSubmit = e => {
 		e.preventDefault()
 		axios
-			.post('http://localhost:8000/api/classrooms/', {
+			.post('/api/classrooms/', {
 				name: className,
 				gradeLevel: gradeLevel
 			},

@@ -19,7 +19,7 @@ const ProfileForm = props => {
 	const handleSubmit = e => {
 		e.preventDefault()
         axios
-			.put(`http://localhost:8000/api/user/${props.user.id}/`, {
+			.put(`/api/user/${props.user.id}/`, {
 				username: username,
 				password: password,
 				first_name: firstName,
