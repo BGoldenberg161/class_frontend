@@ -42,7 +42,7 @@ const AppBar = props => {
 					<>
 						<Anchor
 							as={Link}
-							to='/signup'
+							to='/create'
 							label='Signup'
 							icon={<FingerPrint />}
 							hoverIndicator
