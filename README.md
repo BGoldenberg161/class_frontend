@@ -169,15 +169,15 @@ With Class, you can reduce the workload on educators offer a highly effcient lea
 
 ### TODO
 
-- [ ] Setup Server
-  - [ ] Install Dependencies
-  - [ ] Install / Setup Linter
-  - [ ] Setup Express App
-  - [ ] Setup Not Found and Error Middlewares
-- [ ] Model DB
+- [x] Setup Server
+  - [x] Install Dependencies
+  - [x] Install / Setup Linter
+  - [x] Setup Express App
+  - [x] Setup Not Found and Error Middlewares
+- [x] Model DB
   - What data will we store?
-- [ ] Setup Model(s)
-- [ ] Setup Routes
+- [x] Setup Model(s)
+- [x] Setup Routes
   - What routes will we have?
-- [ ] Setup Client
-- [ ] DEPLOY (Sprinkle That PAPRIKA!)
+- [x] Setup Client
+- [x] DEPLOY (Sprinkle That PAPRIKA!)
